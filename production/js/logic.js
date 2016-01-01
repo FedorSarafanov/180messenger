@@ -18,7 +18,7 @@ $(document).ready(function() {
         $.get(
             "/api/get", {
                 user: user,
-                room: room,
+                room: room, 
                 coff: coff
             },
             function(data) {
