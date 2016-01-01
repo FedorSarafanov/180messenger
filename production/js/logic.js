@@ -1,169 +1,57 @@
 "use strict";
 
-function loade(user, room, coff) {
-    $.get(
-        "/api/get", {
-            user: user,
-            room: room,
-            coff: coff
-        },
-        APP
-    )
-    return true;
-}
-
-function rooms(user) {
-    $.get(
-        "/api/rooms", {
-            user: user,
-        },
-        addroom
-    )
-    return true;
-}
-
-function addroom(data) {
-    $('nav').prepend($(data));
-}
-
-function APP(data) {
-    // $('body').append($(data));
-    if (data != 'END') {
-        $('article').append($(data));
-    } else {
-        $('#readmore').remove();
-    }
-    // if ($('.msg').is('[index=0]')) {
-    //     $('#readmore').remove();
-    // };
-    // scrollToDiv($('#readmore'));
-
-}
-
 function ID() {
     return String(CryptoJS.MD5(String(Math.random() + Math.random() + Math.random() + Math.random())));
+    //Уникальный идентефикатор сообщения
 }
 
-function modal(textq, yes, no, cbYes, cbNo, type) {
-    var question = '<div class="layq">' +
-        '<div class="center">' +
-        '<div class="warning">{0}</div>' +
-        '<div class="buttons">' +
-        '<button class="warn" id="yes">{1}</button>' +
-        '<button class="norm" id="cancel">{2}</button>' +
-        '</div>' +
-        '</div>' +
-        '</div>';
-    if (type == "error") {
-        $('body').append(question.format(textq, yes, no)).find('.center').addClass('bshdw-error');
-    } else {
-        $('body').append(question.format(textq, yes, no)).find('.center').addClass('bshdw-norm');
-    }
-
-
-    $('.layq #yes').click(function() {
-        cbYes();
-        $('.layq').remove();
-    });
-
-    $('.layq #cancel').click(function() {
-        cbNo();
-        $('.layq').remove();
-    });
-};
-
-function formatSize(length) {
-    var i = 0,
-        type = ['б', 'Кб', 'Мб', 'Гб', 'Тб', 'Пб'];
-    while ((length / 1000 | 0) && i < type.length - 1) {
-        length /= 1024;
-        i++;
-    }
-    return Math.round(length) + ' ' + type[i]; //length.toFixed(2) + ' ' + type[i];
-}
-
-var clock = new Object;
-clock.day = function() {
-    return (new Date).getDate();
-};
-clock.month = function() {
-    return (new Date).getMonth() + 1;
-};
-clock.year = function() {
-    return (new Date).getFullYear();
-};
-clock.time = function() {
-    return (new Date).toLocaleTimeString();
-};
-clock.data = function() {
-    return String(clock.day() + '.' + clock.month() + '.' + clock.year());
-};
 
 function dia(from, to) {
     return CryptoJS.MD5([from, to].sort().join(""));
+    //Уникальный идентефикатор диалога
 }
 
-function reloadPage() {
-    window.location.hostname = window.location.hostname;
-}
-
-function scrollToDiv(element) {
-    // var navheight = element.height();
-    var offset = element.offset();
-    // var offsetTop = offset.top;
-    // var totalScroll = offsetTop - navheight;
-
-    $('body,html').animate({
-        scrollTop: offset
-    }, 0);
-}
-
-
-function safe(str) {
-    return _.escape(str);
-}
-
-function shortName(msg) {
-    return safe(msg.title)[0] + '.' + ' ' + safe(msg.patronymic)[0] + '.' + ' ' + safe(msg.family);
-}
 
 $(document).ready(function() {
+
+    function getMessages(user, room, coff) {
+        $.get(
+            "/api/get", {
+                user: user,
+                room: room,
+                coff: coff
+            },
+            function(data) {
+                if (data != 'END') {
+                    $('article').append($(data));
+                }
+            }
+        )
+        return true;
+    }
 
     var maxscroll = 0;
 
     $(window).scroll(function() {
-        if (($(window).scrollTop() >= $(document).height() - $(window).height())&($(window).scrollTop()>maxscroll)) {
+
+        if (($(window).scrollTop() >= $(document).height() - $(window).height()) & ($(window).scrollTop() > maxscroll)) {
             maxscroll = $(window).scrollTop();
             down += 1;
-            loade(sessionStorage["from"], sessionStorage["room"], down);
+            getMessages(sessionStorage["from"], sessionStorage["room"], down);
         }
     });
 
-    // ###   #   #   ###   #####   ###     #    #       ###    ###     #    #####   ###    ###   #   # 
-    //  #    #   #    #      #      #     # #   #        #    #   #   # #     #      #    #   #  #   # 
-    //  #    ##  #    #      #      #    #   #  #        #    #      #   #    #      #    #   #  ##  # 
-    //  #    # # #    #      #      #    #   #  #        #     ###   #   #    #      #    #   #  # # # 
-    //  #    #  ##    #      #      #    #####  #        #        #  #####    #      #    #   #  #  ## 
-    //  #    #   #    #      #      #    #   #  #        #    #   #  #   #    #      #    #   #  #   # 
-    // ###   #   #   ###     #     ###   #   #  #####   ###    ###   #   #    #     ###    ###   #   # 
 
 
-
-    // var socket = io.connect('https://0191928b.ngrok.io/');
-    
-    // var socket = io.connect('http://' + '192.168.1.120' + ':' + '8008');
-
-    // var socket = io.connect('http://' + '89.109.55.34' + ':' + '8008');
-
-    if (sessionStorage["room"] == undefined) { 
+    if (sessionStorage["room"] == undefined) {
         sessionStorage["room"] = "all"
-    } //DEP
+    }
 
     var users = [];
     var to = "Всем"
     var attached = [];
 
-    var down = 0; //Определяет, на сколько дней назад будут прогружаться сообщения // DEPRECATED COMMENT
+    var down = 0; //Счетчик страниц сообщений 0=>1-10 msg, 1=>11-20 msg, 2=>21-30 msg, etc
 
     var $messages = $("#messages");
     var $message_txt = $("#message_text")
@@ -172,21 +60,18 @@ $(document).ready(function() {
     var $body = $(document.body);
     var $inp = $(".file_upload").find("input");
 
-    // session();
-
-
     if (sessionStorage["text"] != undefined) {
         $message_txt.val(sessionStorage["text"]);
     }
 
     if (sessionStorage["attached"] == undefined) {
-        sessionStorage['attached'] = JSON.stringify(attached);
+        sessionStorage['attached'] = JSON.stringify(attached)
     } else {
-        attached = JSON.parse(sessionStorage['attached']);
+        attached = JSON.parse(sessionStorage['attached'])
+
         _.each(attached, function(file) {
-            // $(".mess").append("<a class='attached_tree' target='_blank' href='/upload/" + file + "'>" + file + "<i class='icon-trash-empty'></i></a>");
-            $('.mess').append(magic.magic.fmsgmsg.format(file));
-        });
+            $('.mess').append(magic.magic.fmsgmsg.format(file))
+        })
     }
 
     $(window).unload(function() {
@@ -195,7 +80,7 @@ $(document).ready(function() {
         } else {
             sessionStorage["text"] = "";
         }
-    });
+    })
 
 
 
@@ -206,7 +91,6 @@ $(document).ready(function() {
     // #   #  #      #      #   #  #####   #  #         #      #   #  # #    #   # 
     // #   #  #      #      #   #  #   #   #  #         #      #   #  #  #   #   # 
     //  ###   #      #####   ###   #   #  ####          #       ###   #   #  #   # 
-
 
 
     function uploadFile(e, addmsg) {
@@ -232,7 +116,7 @@ $(document).ready(function() {
                     if (addmsg) {
                         attachFile(respond.file)
                     } else {
-                        $('.c-title').after(magic.fmsg.format(respond.file, respond.file, respond.from, respond.data, formatSize(respond.size)));
+                        $('.c-title').after(magic.fmsg.format(respond.file, respond.file, respond.from, respond.data, magic.str.BytesToSize(respond.size)));
                     }
                 }
             }
@@ -245,7 +129,7 @@ $(document).ready(function() {
         formData.append('files', e.target.files[0]);
         formData.append('size', e.target.files[0].size);
         formData.append('from', sessionStorage['from']);
-        formData.append('data', clock.data());
+        formData.append('data', magic.dt.data());
         formData.append('desc', '');
 
         xhr.open('post', "/api/upload", true);
@@ -349,7 +233,7 @@ $(document).ready(function() {
         var yesfq = "Да, эти файлы больше не нужны мне";
         var cancelfq = "Отмена";
 
-        modal(fq, yesfq, cancelfq, function() {
+        magic.interface.modal(fq, yesfq, cancelfq, function() {
 
             $('.selectable').each(function(a, el) {
                 var $el = $(el);
@@ -420,15 +304,30 @@ $(document).ready(function() {
 
 
     ///////////////////////////////////////////////////
-    //////////  INIT                          /////////
+    //////////  ЗАГРУЗКА ПОСЛЕ АУТЕНЦИФИКАЦИИ /////////
     ///////////////////////////////////////////////////
     window.init = function() {
 
+        function rooms(user) {
+            $.get(
+                "/api/rooms", {
+                    user: user,
+                },
+                function(data) {
+                    $('nav').prepend($(data))
+                }
+            )
+            return true;
+        }
+
         socket.emit("get_users");
 
-        rooms(sessionStorage["from"]);    
+        rooms(sessionStorage["from"]);
 
-        socket.emit("dialog", down, sessionStorage["room"], false);
+        getMessages(sessionStorage["from"], sessionStorage["room"], down);
+
+
+        login.hideAuth();
 
     }
 
@@ -439,7 +338,7 @@ $(document).ready(function() {
     ///////////////////////////////////////////////////
     $logout.click(function() {
         sessionStorage.clear();
-        reloadPage();
+        magic.interface.reloadPage();
     });
 
 
@@ -562,21 +461,6 @@ $(document).ready(function() {
     });
 
 
-
-    ///////////////////////////////////////////////////
-    /////Догрузка сообщений в окно по нажатии /////////
-    ///////////////////////////////////////////////////
-    $("#readmore").on('click', function(event) {
-
-        down += 1;
-
-        loade(sessionStorage["from"], sessionStorage["room"], down);
-
-        event.preventDefault();
-    });
-
-
-
     ///////////////////////////////////////////////////
     /// Показ панели управления сообщением по hover ///
     ///////////////////////////////////////////////////
@@ -650,10 +534,11 @@ $(document).ready(function() {
 
         var $msg = $(this).parent();
 
-        modal("Вы действительно хотите удалить сообщение?", "Да", "Нет", function() {
-            socket.emit('removeMsg', $msg.attr("id"));
-            // socket.emit('removeMsg', $msg.attr("time"), $msg.attr("msg"), $msg.find(".aka").text().replace(' @', ""));
-            $msg.remove();
+        magic.interface.modal("Вы действительно хотите удалить сообщение?", "Да", "Нет", function() {
+
+            socket.emit('removeMsg', $msg.attr("id"))            
+            $msg.remove()
+
         }, function() {}, "error");
 
         event.preventDefault();
@@ -672,69 +557,64 @@ $(document).ready(function() {
 
     socket.on('connecting', function() {});
 
-    socket.on('connect', function() {
-        $('.msg').remove();
-    });
+    socket.on('connect', function() {});
 
     socket.on('failed-login', function() {
+
         sessionStorage["loginde"] = "failed";
-        console.log('Верификация не пройдена, соединение не разорвано.');
-        $('.laypass').find('input').removeClass('redBorder');
+
+        console.log('Верификация не пройдена, соединение не разорвано.')
+
+        $('.laypass').find('input').removeClass('redBorder')
         $('.laypass').find('input:text').addClass("redBorder")
-    });
+
+    })
 
     socket.on('failed-pass', function() {
+
         sessionStorage["loginde"] = "failed";
-        console.log('Верификация не пройдена, соединение не разорвано.');
-        $('.laypass').find('input').removeClass('redBorder');
+
+        console.log('Верификация не пройдена, соединение не разорвано.')
+
+        $('.laypass').find('input').removeClass('redBorder')
         $('.laypass').find('input:password').addClass("redBorder")
-    });
+
+    })
 
     socket.on('success', function() {
 
         sessionStorage["loginde"] = "success";
-        // rooms(sessionStorage["from"]);
-        login.hideAuth();
-        $('.laypass').find('input').removeClass('redBorder');
-        console.log('Верификация пройдена');
-        init();
-        // loade (sessionStorage["from"], sessionStorage["room"], down);   
 
-    });
+        $('.laypass').find('input').removeClass('redBorder')
+
+        console.log('Верификация пройдена')
+
+        init()
+    })
 
 
     socket.on('message', function(data, prepend) {
         $('.msg').last().remove();
         writeMessage(data, prepend);
         $message_txt.focus();
-    });
-
-    socket.on('message-dialog', function(data, prepend) {
-        writeMessage(data, prepend);
-        $message_txt.focus();
-    });
+    })
 
     socket.on('removeMsg', function(id) {
         $('[id="' + id + '"]').remove();
-    });
+    })
 
-
-    socket.on('clearbase', function(data) {
-        $('.msg').remove();
-    });
-
-    socket.on('file_to_cloud', function(data) {
-        $('.c-title').after(magic.fmsg.format(data.file, data.file, data.from, data.data, formatSize(data.size)));
-    });
 
     socket.on('add_users', function(data) {
 
-        _.each(data, function(obj) {
+        _.each(data, function(user) {
 
-            $komu.append('<option value="' + obj.from + '">' + obj.title + '</option>');
-            $('.im').append('<a class="room" href="/{2}" to="{1}" room="{2}">{0} [{1}]</a>'.format(obj.title, obj.from, dia(sessionStorage["from"], obj.from)));
+            $komu.append('<option value="' + user.from + '">' + user.title + '</option>')
 
-            users.push(obj.from);
+            if (sessionStorage["room"]=="im") {
+                $('.im').append('<a class="room" href="/{2}" to="{1}" room="{2}">{0} [{1}]</a>'.format(user.title, user.from, dia(sessionStorage["from"], user.from)));                
+            }
+
+            users.push(user.from)
         })
 
         $('[room=' + sessionStorage["room"] + ']').addClass('activeRoom');
@@ -743,17 +623,8 @@ $(document).ready(function() {
             $('#to').val($('.activeRoom').attr("to"));
         }
 
-    });
+    })
 
-    socket.on('scrollBottom', function() {
-        scrollToDiv($("#readmore"));
-    });
+    login.session(init)
 
-    socket.on('lockBottom', function() {
-        $("#readmore").hide();
-    });
-
-
-login.session(init);
-
-});
+})

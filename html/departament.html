@@ -15,16 +15,16 @@
 
 <body>
     <script src="//127.0.0.1:35729/livereload.js"></script>
-    <!-- // <script src="https://8465f594.ngrok.io/livereload.js"></script> -->
+    <!-- <script src="https://8465f594.ngrok.io/livereload.js"></script> -->
     <!-- setroom -->
-    <script src="js/yepnope-2.0.0.min.js"></script>
+
     <script src="js/underscore-min.js"></script>
     <script src="js/magic.js"></script>    
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/md5.js"></script>
     <script src='js/autoresize.jquery.min.js'></script> 
 
-    <!-- // <script src="http://192.168.1.120:8008/socket.io/socket.io.js"></script> -->
+    <!-- <script src="http://192.168.1.120:8008/socket.io/socket.io.js"></script> -->
     <script src="http://127.0.0.1:8008/socket.io/socket.io.js"></script>
     <script src="js/sckt.js"></script>
     <script src="js/login.js"></script>            
@@ -63,8 +63,8 @@
             <article id="messages">
             </article>
 
-            <button title="Загрузить более ранние сообщения" id="readmore"><i class="icon-down"></i></button>
         </section>
+
         <div class="files hidden">
             <div class="file_panel">
                 <button title="Удалить файлы из облака" id="removefiles" type="button"><i style="display: block !important" class="icon-trash-empty"></i></button>
@@ -81,36 +81,18 @@
             </span>
             <!-- files -->
         </div>
+        
         <div class="im hidden">
         </div>
     </main>
-    <!-- Техническая разметка -->
-<!--     <div class="laypass hidden">
-        <div class="center">
-            <input placeholder="Логин" type="text">
-            <input placeholder="Пароль" type="password">
-            <button id="login">Войти</button>
-        </div>
-    </div> -->
-    <div class="layq hidden">
-        <div class="center">
-            <div class="warning"></div>
-            <div class="buttons">
-                <button class="warn" id="yes"></button>
-                <button class="norm" id="cancel"></button>
-            </div>
-        </div>
-    </div>
+
     <div class="file_upload">
         <div>Файл не выбран</div>
         <input type="file" name="upload">
     </div>
+
     <!-- endscript -->
-    <style>
-    #cpanel{
-        display: none;
-        }
-    </style>
+
 </body>
 
 </html>

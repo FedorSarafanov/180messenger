@@ -118,13 +118,6 @@ siteApp.engine('html', function(filePath, options, callback) { // движок
         var rendered = content.toString();
 
         switch (options.generate) {
-            case "loremipsumdolorimet":
-                {
-                    rendered = rendered
-                        .replace('<!-- setroom -->', '<script> sessionStorage["room"]="' + options.room + '"; </script>')
-                        .replace('<!-- endscript -->', '<script>$("section").hide();$(".files").find(".attached_tree").remove();socket.emit("cloud");$("#tomsg, #closeCloud").remove();$(".files").removeClass("hidden");</script>');
-                    break
-                }
             case "im":
                 {
                     rendered = rendered
@@ -609,21 +602,6 @@ io.sockets.on('connection', function(client) { //Всего 10 обработч�
         }
     });
 
-    client.on('dialog', function(length, room, bottom) {
-        try {
-
-            connection.query('SELECT * from `messages` WHERE room="' + room + '" ORDER BY `num` DESC LIMIT 10', function(err, rows, fields) {
-                _.each(rows, function(message, idx) {
-                    client.emit('message-dialog', message, false);
-                });
-            });
-
-        } catch (e) {
-            console.log(logTime() + e);
-        }
-    });
-
-
     client.on('removeMsg', function(id) {
         try {
 
@@ -654,21 +632,6 @@ io.sockets.on('connection', function(client) { //Всего 10 обработч�
         }
     })
 
-
-    client.on('cloud', function(length) {
-        try {
-
-            cloudfiles = [];
-            readCloud();
-            var d = cloudfiles.length;
-            for (var i = 0; i <= d - 1; i++) {
-                client.emit('file_to_cloud', cloudfiles[i]);
-            };
-
-        } catch (e) {
-            console.log(logTime() + e);
-        }
-    });
 
     client.on('get_users', function() {
         try {

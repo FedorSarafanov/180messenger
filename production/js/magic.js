@@ -121,8 +121,8 @@
                 if (MSGattach.length != 0) {
                     attach += '<br>';
 
-                    for (var i = 0; i < MSGattach.length; i++) {                    	
-						attach += magic.fmsgmsg.format(MSGattach[i]);                    	
+                    for (var i = 0; i < MSGattach.length; i++) {
+                        attach += magic.fmsgmsg.format(MSGattach[i]);
                     }
 
                     // _.each(MSGattach, function(file) {
@@ -136,7 +136,7 @@
         })();
 
         var trash = (function() {
-            if ((message.from == user) | (role == "администратор")  | (user == "fomin")) {
+            if ((message.from == user) | (role == "администратор") | (user == "fomin")) {
                 return '<i title="Редактировать сообщение" class="icon-edit"></i><i title="Сохранить сообщение" class="icon-save"></i><i title="Удалить сообщение" class="icon-trash-empty"></i>'
             } else {
                 return ""
@@ -177,8 +177,43 @@
         return Math.round(length) + ' ' + type[i]; //length.toFixed(2) + ' ' + type[i];
     }
 
-    magic.magic = function () {
-    	alert(ff(2))
+    magic.magic = function() {
+        alert(ff(2))
+    }
+
+    magic.interface = {}
+
+    magic.interface.modal = function(textq, yes, no, cbYes, cbNo, type) {
+
+        var question = '<div class="layq">' +
+            '<div class="center">' +
+            '<div class="warning">{0}</div>' +
+            '<div class="buttons">' +
+            '<button class="warn" id="yes">{1}</button>' +
+            '<button class="norm" id="cancel">{2}</button>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+
+        if (type == "error") {
+            $('body').append(question.format(textq, yes, no)).find('.center').addClass('bshdw-error');
+        } else {
+            $('body').append(question.format(textq, yes, no)).find('.center').addClass('bshdw-norm');
+        }
+
+        $('body').on('click', '.layq #yes', function() {
+            cbYes();
+            $('.layq').remove();
+        })
+
+        $('body').on('click', '.layq #cancel', function() {
+            cbNo();
+            $('.layq').remove();
+        })
+    }
+
+    magic.interface.reloadPage = function() {
+        window.location.hostname = window.location.hostname;
     }
 
 }.call(this));

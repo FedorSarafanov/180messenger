@@ -1,6 +1,6 @@
 {
   "name": "lyceum180-chat",
-  "version": "1.1.1153",
+  "version": "1.1.1219",
   "description": "Корпоративный чат лицея №180",
   "main": "appChat.js",
   "dependencies": {
