@@ -1,0 +1,247 @@
+.appControls{
+    position: fixed;
+
+    /*align-self: flex-end;                */
+    top: 0;
+    right: 0;
+    -webkit-app-region: no-drag;
+    z-index: 999999999999;                
+}
+.appControl{
+    padding: 13px;
+    margin-top: 3px;
+    text-align: center;                
+    width: 54px;
+    height: 54px;
+    background: #000;
+    display: block;
+    float: left;                
+    color: #FFF;
+    box-sizing: border-box;
+    cursor: default;
+    user-select: none;
+    z-index: 100;
+    
+}
+.appControl:last-of-type{
+    margin-right: 3px;
+}
+.appControl:hover{
+    background: #eee;
+    color: #000;
+    -webkit-transition: background-color .6s ease;
+    cursor: default;               
+}
+#appMinimize{
+    /*display: block;*/
+    -webkit-app-region: no-drag;                
+}
+header{
+    font-size: 25px; 
+    /*border-radius: 10px 10px 0px 0px;*/
+    /*background-color:rgba(33,33,44,0.3) !important;*/
+    opacity: 0.9;
+}
+.proto{
+    filter: blur(5px);
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+
+    display: block;
+
+    box-sizing: border-box;             
+}
+body{
+    padding-top: 50px;
+    /*opacity: 0.9;*/
+    background-color:rgba(33,33,44,0) !important;
+    /*border-radius: 10px;*/
+    /*overflow-x: hidden;*/
+    /*margin-right: -10px;*/
+    /*overflow: hidden !important; */
+    /*height: 100vh;       */
+    /*display: block !important;        */
+}
+html::-webkit-scrollbar { width: 0 !important }
+body::-webkit-scrollbar { width: 0 !important }
+html{
+    border: 3px solid #777;
+    /*border-radius: 10px;   */
+    /*margin-bottom: 10px !important;             */
+    /*height: 100vh;*/
+    /*overflow-x: hidden;*/
+}
+body:after{
+    content:'';
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #777;
+}
+body:before{
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100vh;
+    background: #777;
+    z-index: 100;
+
+}
+main{
+    /*height: 100vh;*/
+    /*overflow: auto;*/
+    /*display: flex;*/
+    /*flex-direction: row;  */
+    /*margin-bottom: 50px;   */
+    /*overflow-x: hidden;                */
+}
+header{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 !important;
+    border-top: 3px solid #777;
+    border-left: 3px solid #777;
+    border-right: 3px solid #777;
+}
+.title{
+    margin: 0.5em;
+}
+.header{
+    position: fixed;  
+    z-index: 18000;
+    width: 100%;
+    font-size: 1.25em;
+    color: #fcf5f5;
+    left: 0;
+    top: 0;
+    font-weight: 100;                
+    box-sizing: border-box;
+    display: flex;
+    -webkit-app-region: drag;
+    border-top: 3px solid #777;
+    border-left: 3px solid #777;
+    border-right: 3px solid #777;
+    background: #333;                
+}
+.header{
+    -webkit-user-select: none;
+}
+#d180, #run{
+    font-weight: 500;   
+    -webkit-app-region: no-drag;    
+    -webkit-user-select: none;
+    display: inline-block;
+    /*padding: 0.5em;*/
+    cursor: default;
+    
+}
+.lm{
+    flex: 1;
+    -webkit-user-select: none;                
+    padding: 0.5em;                
+}
+.winCtrl{
+    -webkit-app-region: no-drag;    
+    -webkit-user-select: none;      
+    cursor: default;          
+    display: block;
+    padding: 0.5em 0 0.5em 0;    
+    text-align: center;
+    width: 2em;            
+}
+.winCtrl:hover{
+    background: #FFF;
+    color: #000;
+    -webkit-filter: invert(100%) !important;
+}
+#appMinimize{
+    -webkit-filter: invert(80%);
+    background: url(../../img/min.png);
+    color: #FFF;
+    background-repeat:no-repeat;
+    background-position: center center;                
+}
+#appMaximize{
+    -webkit-filter: invert(80%);
+    background: url(../../img/max.png);
+    color: #FFF;
+    background-repeat:no-repeat;
+    background-position: center center;                
+}   
+#appClose{
+    -webkit-filter: invert(80%);
+    background: url(../../img/close.png);
+    color: #FFF;
+    background-repeat:no-repeat;
+    background-position: center center;                
+}                       
+
+// nav{
+//     z-index: 99;
+// }
+
+.menur{
+
+    margin-left: 0em;
+}
+
+nav{   
+    transition: margin-left 0.5s ease;        
+    margin-left: -13.4em;
+}
+
+@run-c:#1abc9c;
+
+.runa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // height: ~"calc(100vh - 50px - 3px - 3px)";
+    // position: fixed;
+    // left: 3px;
+    // top: 57px;
+    // z-index: 105;
+    // width: 100%;
+    background: @run-c;
+}
+
+.gold{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: lighten(@run-c, 30%);
+    padding: 1em;
+    margin: 0.5em;
+    height: 130px;
+    width: 100px;
+    i{
+        font-size: 3em;
+        padding: 0.33em;
+    }
+}
+
+
+#run{
+    padding: 0.5em;
+    color: #eee;
+    &:hover{
+        color: #ddd;
+    }
+}
+
+        // <div class="app">
+        //     <i class="i-msgs"></i>
+        //     <span>Мои личные сообщения</span>
+        // </div>  

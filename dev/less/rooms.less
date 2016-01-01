@@ -1,0 +1,90 @@
+@import "colors.less";
+@import "snippets.less";
+@white: #ffffff;
+@gray: #ccc;
+@dark: darken(@white, 40%);
+
+
+.bg-transparent(@color, @alpha: 1)
+{
+    background: rgba( red(@color), green(@color), blue(@color), @alpha);
+}
+
+body,html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: sans;
+    font-size: 1em;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    border-bottom: 1px solid @dark;
+    nav{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        div, a{
+            display: block;
+            text-decoration: none;
+            padding: 1em;
+            color: darken(@white, 90%);
+            &:hover, &:focus{
+                cursor: default;
+                outline: none;
+                background: @dark;
+            }
+        }
+    }
+}
+
+main{
+    display: flex;
+    flex: 1;
+    flex-direction: row;      
+}
+
+.rooms, .users, .usersgroup, .userswithout{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    span{
+        padding: 0.5em 1em 0.5em 1em;
+        border-bottom: 1px solid @dark;
+        user-select: none;
+        cursor: default;
+        
+        &:last-of-type{
+            // border-bottom: none;
+        }            
+    }
+    border-right: 1px solid @dark;
+    &:last-of-type{
+        border-right: none;
+    }
+}
+.rooms{
+    flex: 0 0 15em;
+}
+
+.table-title{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid @dark;
+    span{
+        padding: 1em;
+        box-sizing: border-box;
+    }
+}
+
+.selectable{
+    background: @selectable-bg;
+}

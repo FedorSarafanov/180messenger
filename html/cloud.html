@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/roboto.css">
+    <link rel="stylesheet" href="css/dep.min.css">
+    <link rel="stylesheet" href="css/msg.min.css">
+    <link rel="stylesheet" href="css/chatsfg.css">
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- setstyle -->
+    <title>Лицейский мессенджер</title>
+</head>
+
+<body>
+    <script src="//localhost:35729/livereload.js"></script>   
+    <script src="js/yepnope-2.0.0.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/happy.js"></script>    
+    <script src="js/backbone-min.js"></script>    
+    <script src="js/$.js"></script>
+    <script src="js/md5.js"></script>    
+    <script>
+        window.jsfile = "cloud"
+        
+    </script>
+    <script src="js/yepnope-load.js"></script>
+    <header>
+        <span class="c180">#180</span>
+        Лицейское хранилище
+    </header>
+    
+    <main>
+        <nav>
+            <a class="room" href="/all" room="all">Общий чат</a>
+            <a class="room" href="/administration" room="administration">Администрация</a>
+            <a class="room" href="/support" room="support">Системное администрирование и техподдержка</a>
+            <a class="room" href="/bugh" room="bugh">Бухгалтерия</a>
+            <a class="room" href="/imc" room="imc">Информационно-методический центр</a>
+            <a class="room" href="/iv" room="iv">Информационное пространство</a>
+            <a class="room" href="/knh" room="knh">Кафедра начальных классов</a>
+            <a class="room" href="/kis" room="kis">Культура, искусство и спорт</a>
+            <a class="room" href="/merp" room="merp">Мероприятия</a>
+            <a class="room" href="/im" room="im">Личные сообщения</a>
+            <a class="room" href="/cloud" room="cloud">Облако файлов</a>
+            <a class="room" href="/os" room="os">Образовательный сектор</a>
+            <a class="room" href="/ss" id="ss" room="ss">Совет старшеклассников</a>
+        </nav>
+        <div class="files">
+            <div class="file_panel">
+                <button title="Удалить файлы из облака" id="removefiles" type="button"><i style="display: block !important" class="icon-trash-empty"></i></button>
+                <button title="Загрузить файлы в облако" id="upload_tocloud" type="button"><i class="icon-add"></i></button>
+                <button title="Добавить к сообщению файлы" id="tomsg" type="button"><i class="icon-link"></i></button>
+                <button title="Вернуться к сообщениям" id="closeCloud" type="button"><i class="icon-undo"></i></button>
+            </div>
+            <progress value="0" max="100"></progress>
+
+            <span class='c-title' href='#'>
+                <span class='c-file'>Имя файла</span>
+                <span class='c-nick'>Ник</span>
+                <span class='c-date'>Дата</span>
+                <span class='c-size'>Размер файла</span>
+            </span>
+            <div class="file_upload">
+                <div>Файл не выбран</div>
+                <input type="file" name="upload">
+            </div> 
+        </div>
+    </main>
+</body>
+
+</html>

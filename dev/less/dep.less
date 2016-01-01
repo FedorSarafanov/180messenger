@@ -1,0 +1,409 @@
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900,100&subset=latin,cyrillic);
+@import 'colors.less';
+@import 'snippets.less';
+
+@header-fsz: 2em;
+
+html
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;//1.25em;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: ~"calc(100vh - 4.3em)";
+    margin: 0;
+    padding: 0;
+    padding-top: 4.35em;
+
+    background: @white;
+}
+header
+{
+    // font-family: 'Roboto', sans-serif;
+    font-size: @header-fsz;
+    font-weight: 100;
+    -webkit-app-region: drag;
+
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: row;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: @header-fsz/4 @header-fsz/2 @header-fsz/4 @header-fsz/2;
+
+    user-select: none;
+
+    color: @header-c;
+    background: @header-bg;
+    // background: #ddd;
+
+    
+    .c180
+    {
+        font-weight: 500;
+
+        user-select: none;
+    }
+}
+
+nav
+{
+    font-family: inherit;
+    font-size: .85em;
+    font-weight: 300;
+
+    display: flex;
+    flex-direction: column;
+
+    user-select: none;
+
+    background: @nav-bg;
+
+    flex: 0 0 13em;
+    li,
+    a
+    {
+        display: block;
+
+        padding: 1em;
+
+        user-select: none;
+        text-decoration: none;
+
+        color: @navLi-c;
+        &:hover,
+        &:focus
+        {
+            cursor: default;
+            transition: all .2s ease;
+
+            outline: none;
+
+            .activeRoom();
+        }
+    }
+    .activeRoom
+    {
+        font-family: 'Roboto';
+        font-weight: 500;
+
+        position: relative;
+
+        background-color: @activeRoom-bg;
+
+        .c-transparent(#fff, .9);
+        &:after //Прикроет границу справа, визуально сравнявшись с светлыми кнопками. Design Hack!!!
+        {
+            position: absolute;
+            top: 0;
+            right: -1px;
+
+            display: block;
+
+            width: 1px;
+            height: 100%;
+
+            content: '';
+
+            background-color: @activeRoom-bg;
+        }
+    }
+}
+
+
+main
+{
+    display: flex;
+
+    flex: 1;
+}
+
+textarea
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+
+    box-sizing: border-box; 
+    width: 100%;
+    height: 7em;
+    margin: 0;
+    padding: 1em;
+
+    resize: none;
+
+    border: none;
+    border-top: 1px solid #bbb;
+    outline: none;
+    background: @white;
+}
+
+.msg{
+    textarea{
+        border: none !important;     
+        padding: 0 !important;   
+    }
+}
+
+section
+{
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    border-left: 1px solid @border-c;
+    background: @white;
+
+    flex: 1;
+    footer
+    {
+        border-bottom: 1px solid #ccc;
+        .mess
+        {
+            position: relative;
+
+            display: block;
+            overflow: hidden;
+
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 4em;
+            padding-left: 1em;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            background: @white;
+            .buttons
+            {
+                font-size: 1em;
+
+                position: absolute;
+                z-index: 98;
+                right: .5em;
+                bottom: .5em;
+
+                border-radius: .5em;
+                background: @white;
+                button,
+                select
+                {
+                    font-size: .8em;
+
+                    overflow: hidden;
+
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                    color: lighten(#000, 40%);
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    &:hover,
+                    &:focus
+                    {
+                        color: #000 !important;
+                        text-shadow: #5d00b3 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    article
+    {
+        // font-family: 'Roboto';
+        font-weight: 300;
+
+        padding: 1em;
+
+        flex: 1;
+    }
+    #readmore
+    {
+        height: 2em;
+
+        .button(@button-bg);
+    }
+}
+
+progress
+{
+    width: 100%;
+    height: 5px;
+
+    border: 0 !important;
+    background: @white;
+    &::-webkit-progress-bar
+    {
+        background: @white;
+    }
+    &::-webkit-progress-value
+    {
+        background: red;
+    }
+}
+
+.files
+{
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    border-left: 1px solid @border-c;
+
+    background: @white;
+    flex: 1;
+    .selectable
+    {
+        background: @selectable-bg !important;
+    }
+    .file_panel
+    {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: flex-end;
+        button
+        {
+            font-size: .85em;
+
+            padding: 1em;
+            // flex: 1;
+
+            .button(@button-bg);
+        }
+    }
+}
+
+.im
+{
+    display: flex;
+    flex-direction: column;
+    
+    box-sizing: border-box;
+
+    border-left: 1px solid @border-c;
+
+    .bg-transparent(@white, .91);
+    flex: 1;
+    a, a:visited, a:link
+    {
+        width: 100%;    
+        padding: 1.5em;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #111;
+        border-bottom: 1px solid #ccc;
+        &:hover{
+            background: #eee !important;
+        }
+        &:after{
+            content: attr(from);
+            display: block;
+            float: left;            
+        }
+        
+    }
+}
+
+@media (max-width:1100px)
+{
+    .files
+    {
+        .c-data
+        {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:865px)
+{
+    .files
+    {
+        .c-nick
+        {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:750px)
+{
+    .files
+    {
+        .c-size
+        {
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width:600px)
+{
+    header
+    {
+        display: none;
+    }
+
+    #message_text
+    {
+        border-top: none !important;
+    }
+    body
+    {
+        margin: 0;
+        padding: 0;
+    }
+    nav
+    {
+        flex: 1;
+        &:before
+        {
+            font-weight: 500;
+
+            padding: 1em;
+
+            content: 'Меню';
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            color: #000;
+            background: #c7c7c7;
+        }
+    }
+    main
+    {
+        flex-direction: column;
+    }
+    section,
+    .files
+    {
+        order: -1;
+    }
+    .files
+    {
+        .ofsize
+        {
+            display: none;
+        }
+    }
+}

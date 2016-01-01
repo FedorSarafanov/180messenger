@@ -1,0 +1,23 @@
+{
+  "name": "node-webkit-chat",
+  // "main": "http://127.0.0.1:8000/",
+  // "main": "drag.html",
+  "main": "html/main.html",
+  "version": "0.1.1",
+  "window": {
+    "title": "Лицейский мессенджер",
+    "toolbar": false,
+    "show": false,
+    "frame": false,
+    "width": 960,
+    "height": 640,
+    "min_width": 400,
+    "min_height": 200,
+    "position": "center",
+    "icon": "favicon.png",
+    "transparent": true
+  },
+  "devDependencies": {
+    "nw-notify": "~0.2.3"
+  }
+}

@@ -1,0 +1,293 @@
+@import "colors.less";
+.icon-private{
+    color: #4F6B72;
+    font-size: 0.9em;
+}
+
+.system, .time{
+    color: #4F6B72;
+}
+
+.txt{
+    margin-left: 1.2em;
+    margin-top: 1.2em;
+}
+
+.private{
+    // background: #ddd;
+    // border-radius: 0.5em;
+    color: #0081E5 !important;
+}
+
+.time{
+    font-weight: 100;
+}
+
+.aka{
+    color: #0060C2 !important;
+}
+
+.messages{
+    height: 100%;
+    min-height: ~"calc(100vh - 8em)";
+    border: 1px solid #d4d4d4;
+    // background: #fff;
+    background: #FCF5F5;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.user{
+    // color: #4F6B72;
+    color: #0081E5 !important;    
+}
+
+@font-face {
+  font-family: 'chatsfg';
+  src: url('/font/chatsfg.eot?1382537');
+  src: url('/font/chatsfg.eot?1382537#iefix') format('embedded-opentype'),
+       url('/font/chatsfg.woff?1382537') format('woff'),
+       url('/font/chatsfg.ttf?1382537') format('truetype'),
+       url('/font/chatsfg.svg?1382537#chatsfg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.attached_tree[href*=".txt"]{
+    &:before{
+        content: "\e808" !important;
+    } 
+}
+.attached_tree[href*=".pdf"]{
+    &:before{
+        content: "\e807" !important;
+        color: #ED0B0C !important;
+    } 
+}
+
+.attached_tree[href*=".doc"],.attached_tree[href*=".docx"]{
+    &:before{
+        content: "\e803" !important;
+        color: #295498 !important;
+    } 
+}
+
+.attached_tree[href*=".ppt"],.attached_tree[href*=".pptx"]{
+    &:before{
+        content: "\e805" !important;
+        color: #D04423 !important;
+    } 
+}
+
+.attached_tree[href*=".xls"],.attached_tree[href*=".xlsx"]{
+    &:before{
+        content: "\e804" !important;
+        color: #207244 !important;
+    } 
+}
+
+.attached_tree[href*=".png"],.attached_tree[href*=".jpg"],.attached_tree[href*=".bmp"]{
+    &:before{
+        content: "\e806" !important;
+    } 
+}
+
+.attached_tree[href*=".rar"],.attached_tree[href*=".zip"],.attached_tree[href*=".tar.gz"]{
+    &:before{
+        content: "\E80A" !important;
+    } 
+}
+
+.attached_tree[href*=".mp3"],.attached_tree[href*=".wav"],.attached_tree[href*=".flac"]{
+    &:before{
+        content: "\E80C" !important;
+    } 
+}
+
+.attached_tree[href*=".pas"],.attached_tree[href*=".py"],.attached_tree[href*=".js"],.attached_tree[href*=".css"],.attached_tree[href*=".less"],.attached_tree[href*=".html"]{
+    &:before{
+        content: "\E80D" !important;
+    } 
+}
+
+#upload_image{
+    display: block;
+    float: left;
+    
+}
+
+.attached{
+    display: block;
+    float: left;
+    position: relative;    
+    color: @attached-text;
+    font-size: 0.7em;
+    padding: 1em;
+    text-decoration: none;
+    font-weight: 300;
+    white-space: pre-wrap;
+    // width: 3.5em;
+    &:link, &:visited{
+        color: @attached-text;
+    }
+    &:hover{
+        cursor: default;        
+        color: #000;
+    }
+    &:before{
+        font-family: 'chatsfg';
+        font-size: 3em;
+        // width: 1em;
+        content: "\E80B";
+        text-align: center;
+        width: 100%;
+        height: 1em;
+        display: block;
+        position: relative;
+        padding-bottom: 0.1em;
+        color: #aaa;
+    }     
+}
+
+.msg{
+    margin-bottom: 10px;    
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    i{
+        color: #4F6B72;
+        float: right;        
+        &:hover{
+          color: #000;  
+          cursor: default;
+        }
+    }
+    
+}
+
+.администратор, .директор, .admin{
+    color: #02A0B4 !important;
+}
+
+
+ 
+.director{
+    color: #02A0B4 !important;
+}
+
+
+.system{
+    font-weight: 100;
+    color: #CB0C6A !important;
+}
+
+.attached_tree{
+    display: flex;
+    flex-direction: row;
+    @attached-text: #333;
+    color: @attached-text;
+    font-size: 1.1em;
+    margin-left: 1em;
+    // width: 100%;
+    overflow: hidden;
+    padding: 0.25em;
+    text-decoration: none;
+    font-weight: 300;
+    /* -ms-text-overflow: ellipsis; */
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    // width: 3.5em;
+    &:link, &:visited{
+        color: @attached-text;
+    }
+    &:hover{
+        cursor: default !important;        
+        color: #000;
+        background: lighten(#ddd, 3%) !important;
+    }
+    &:before{
+        font-family: 'chatsfg';
+        font-size: 1em !important;
+        // width: 1em;
+        content: "\E80B";
+        margin-right: 0.5em;
+        text-align: center;
+        width: 1em !important;
+        height: 1em !important;
+        display: inline !important;
+        // position: relative !important;
+        // top: 1em !important;
+      // left: -1em !important;
+        padding-bottom: 0em !important;
+        color: #aaa;
+    }     
+}
+
+.c-title, .attached_tree{
+    .c-file{
+        flex: 4.2;
+    }
+    .c-nick{
+        flex: 1;
+    }
+    .c-date{
+        flex: 1;
+    }
+    .c-size{
+        flex: 0.7;        
+        // margin-left: 0.5em;
+    }
+}
+
+.attached{
+    .icon-trash-empty{
+        position: absolute;
+        font-size: 1em;
+        right: 0;
+        top: 0;
+    }
+}
+
+.c-title{
+    display: flex;
+    flex-direction: row;
+
+    font-size: 1.1em;
+    margin-left: 2.5em;
+    // width: 100%;
+    overflow: hidden;
+    padding: 0.25em;
+    text-decoration: none;
+    font-weight: 300;
+    /* -ms-text-overflow: ellipsis; */
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    *{
+    color: lighten(#000, 20%) !important;
+    font-weight: 400 !important;        
+    }
+    color: lighten(#000, 20%) !important;
+    font-weight: 400 !important;
+    .c-file{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;        
+    }
+}
+
+.icon-trash-empty, .icon-save, .icon-edit{
+    display: none;
+}
+
+.nohover{
+    &:hover{
+        background-color: transparent !important;
+        // color: @attached-text !important;
+        // color: inherit !important;
+    }
+}

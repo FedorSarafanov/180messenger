@@ -1,0 +1,1486 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"пользов",
+				"пользователем"
+			],
+			[
+				"пользо",
+				"пользователем"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"bsz",
+				"bgsz-ct	background-size: contain;"
+			],
+			[
+				"jc",
+				"jc-fs	justify-content: flex-start;"
+			],
+			[
+				"ac",
+				"ac-sa	align-content: space-around;"
+			],
+			[
+				"on",
+				"on	socket-on"
+			],
+			[
+				"fi",
+				"first	.first()"
+			],
+			[
+				"у",
+				"ученик"
+			],
+			[
+				"remove",
+				"removeClass	.removeClass()"
+			],
+			[
+				"to",
+				"tov	text-overflow: ${ellipsis};"
+			],
+			[
+				"_co",
+				"_contains	Underscore.js contains"
+			],
+			[
+				"k",
+				"korsakova_iv"
+			],
+			[
+				"s",
+				"smirnova_na"
+			],
+			[
+				"ko",
+				"kurushova_iv"
+			],
+			[
+				"tog",
+				"toggleClass	.toggleClass()"
+			],
+			[
+				"fx",
+				"fxw-w	flex-wrap: wrap;"
+			],
+			[
+				"fxd",
+				"fxd-r	flex-direction: row;"
+			],
+			[
+				"u",
+				"us	user-select"
+			],
+			[
+				"ov-s",
+				"ovs-m	overflow-style: move;"
+			],
+			[
+				"oy",
+				"ovy-s	overflow-y: scroll;"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"a",
+				"appendTo	.appendTo()"
+			],
+			[
+				"п",
+				"пользователя"
+			],
+			[
+				"im",
+				"@import	@import url(${0});"
+			],
+			[
+				"bsh",
+				"bxsh	box-shadow: ${1:inset }${2:hoff} ${3:voff} ${4:blur} ${5:color};"
+			],
+			[
+				"_",
+				"_find	Underscore.js find"
+			],
+			[
+				"li",
+				"lighten(color, 10%)"
+			],
+			[
+				"bor-",
+				"border-radius"
+			],
+			[
+				"ke",
+				"keypress	.keypress()"
+			],
+			[
+				"scro",
+				"scrollTop	.scrollTop()"
+			],
+			[
+				"f",
+				"focus	.focus()"
+			],
+			[
+				"cu",
+				"cur:t	cursor:text"
+			],
+			[
+				"da",
+				"desaturate(color, 10%)"
+			],
+			[
+				"fs",
+				"fst	font-stretch"
+			],
+			[
+				"add",
+				"addClass	.addClass()"
+			],
+			[
+				"pos",
+				"pos:r	position:relative"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"has",
+				"hasClass	.hasClass()"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"ai",
+				"ai-s	align-items: stretch;"
+			],
+			[
+				"out",
+				"outline"
+			],
+			[
+				"co",
+				"content"
+			],
+			[
+				"tr",
+				"trs	transition"
+			],
+			[
+				"attache",
+				"attach_file"
+			],
+			[
+				"con",
+				"console.log();"
+			],
+			[
+				"ni",
+				"nick2fio"
+			],
+			[
+				"rel",
+				"reloadPage"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"read",
+				"readSettings"
+			],
+			[
+				"ms",
+				"msg_write"
+			],
+			[
+				"g",
+				"gulp"
+			],
+			[
+				"sc",
+				"scrollTop"
+			],
+			[
+				"r",
+				"require"
+			],
+			[
+				"re",
+				"reply"
+			],
+			[
+				"l",
+				"lengthmessages"
+			],
+			[
+				"dial",
+				"dialogi"
+			],
+			[
+				"d",
+				"dialoge"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"pr",
+				"prompt"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"messa",
+				"message_text"
+			],
+			[
+				"art",
+				"article"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "departament.html",
+			"settings":
+			{
+				"buffer_size": 4690,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/dev/less/dep.less",
+			"settings":
+			{
+				"buffer_size": 6604,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/logic.js",
+			"settings":
+			{
+				"buffer_size": 24184,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/magic.js",
+			"settings":
+			{
+				"buffer_size": 6499,
+				"line_ending": "Unix",
+				"name": "(function() {"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/package.json",
+			"settings":
+			{
+				"buffer_size": 1041,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin.html",
+			"settings":
+			{
+				"buffer_size": 1970,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/admin.js",
+			"settings":
+			{
+				"buffer_size": 6279,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rooms.html",
+			"settings":
+			{
+				"buffer_size": 2760,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/rooms.js",
+			"settings":
+			{
+				"buffer_size": 7397,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/appChat.js",
+			"settings":
+			{
+				"buffer_size": 24124,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/sckt.js",
+			"settings":
+			{
+				"buffer_size": 338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/production/js/login.js",
+			"settings":
+			{
+				"buffer_size": 3679,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/json/config.json",
+			"settings":
+			{
+				"buffer_size": 5970,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/osabio/CHAT-R/json/base.json",
+			"settings":
+			{
+				"buffer_size": 21169,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "html",
+		"selected_items":
+		[
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"css",
+				"Run CSScomb"
+			],
+			[
+				"ht",
+				"HTMLPrettify"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"form",
+				"Format Code"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"f",
+				"Format Code"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"javas",
+				"Format: Javascript"
+			],
+			[
+				"refac",
+				"Snippet: document.ready - $(function(){})"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"termin",
+				"Terminality: Browse Commands..."
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"fo",
+				"Format Code"
+			],
+			[
+				"forma",
+				"Format Code"
+			],
+			[
+				"for",
+				"Format Code"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"exp",
+				"Export to HTML: Show Export Menu"
+			],
+			[
+				"print",
+				"Print to HTML: print as HTML via browser"
+			],
+			[
+				"ascii",
+				"ASCII Decorator: Generate Font Test"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pretif",
+				"HTMLPrettify"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"cs",
+				"Run CSScomb"
+			],
+			[
+				"fora",
+				"Format Code"
+			],
+			[
+				"package re",
+				"Package Control: Remove Package"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/osabio/CHAT-R/production/js/yepnope-load.js",
+		"/home/osabio/vocal180.github.com/gulpfile.js",
+		"/home/osabio/CHAT-R/production/js/functions.js",
+		"/home/osabio/CHAT-R/bb.js",
+		"/home/osabio/CHAT-R/production/js/login2.js",
+		"/home/osabio/CHAT-R/json/table.mysql",
+		"/home/osabio/CHAT-R/dev/less/snippets.less",
+		"/home/osabio/CHAT-R/dev/less/msg.less",
+		"/home/osabio/CHAT-R/dev/less/dep.less",
+		"/home/osabio/CHAT-R/production/js/jquery-2.1.4.min.js",
+		"/home/osabio/CHAT-R/gulpfile.js",
+		"/home/osabio/.ngrok2/ngrok.yml",
+		"/home/osabio/.mysql_history",
+		"/home/osabio/CHAT-R/production/js/underscore-min.js",
+		"/home/osabio/CHAT-R/production/js/rooms.js",
+		"/home/osabio/CHAT-R/production/css/nwapp.css",
+		"/home/osabio/.v8flags.3.14.5.9.osabio.json",
+		"/home/osabio/.npmrc",
+		"/home/osabio/.bash_logout",
+		"/home/osabio/dump.rdb",
+		"/home/osabio/CHAT-R/package.json",
+		"/home/osabio/CHAT-R/node_modules/gulp/package.json",
+		"/home/osabio/CHAT-R/node_modules/gulp/index.js",
+		"/home/osabio/CHAT-R/dev/less/cpanel.less",
+		"/home/osabio/CHAT-R/production/js/yepnope-2.0.0.min.js",
+		"/home/osabio/CHAT-R/node_modules/gulp-changed/readme.md",
+		"/home/osabio/CHAT-R/json/base.json",
+		"/home/osabio/CHAT-R/production/css/chatsfg.css",
+		"/home/osabio/CHAT-R/dev/less/rooms.less",
+		"/home/osabio/CHAT-R/dev/less/admin.less",
+		"/home/osabio/CHAT-R/html/rooms.html",
+		"/home/osabio/CHAT-R/html/admin.html",
+		"/home/osabio/CHAT-R/production/js/admin.js",
+		"/home/osabio/CHAT-R/production/js/logic.js",
+		"/home/osabio/CHAT-R/html/main.html",
+		"/home/osabio/CHAT-R/html/departament.html",
+		"/home/osabio/CHAT-R/dev/less/colors.less",
+		"/home/osabio/CHAT-R/html/exit.html",
+		"/home/osabio/CHAT-R/html/cpanel.html",
+		"/home/osabio/CHAT-R/html/cloud.html",
+		"/home/osabio/CHAT-R/json/config.json",
+		"/home/osabio/.config/sublime-text-3/Packages/User/switch.sublime-snippet",
+		"/tmp/users",
+		"/etc/mysql/my.cnf",
+		"/home/osabio/CHAT-R/node_modules/node-mysql/README.md",
+		"/home/osabio/CHAT-R/node_modules/npm-debug.log",
+		"/home/osabio/CHAT-R/node_modules/nw-notify/notification.html",
+		"/home/osabio/CHAT-R/html/index.html",
+		"/home/osabio/CHAT-R/html/notify.html",
+		"/home/osabio/CHAT-R/node_modules/nw-notify/index.js",
+		"/home/osabio/CHAT-R/production/js/logic-nw.js",
+		"/home/osabio/CHAT-R/dev/less/nw-app.less",
+		"/home/osabio/CHAT-R/node_modules/nw-notify/package.json",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/App.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Manifest-format.md",
+		"/home/osabio/CHAT-R/scroll.html",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/How-to-package-and-distribute-your-apps.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Tray.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Menu.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Livereload-nw.js-on-changes.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Show-window-after-page-is-ready.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/v0.3.2-release-note.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Screen.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Debugging-with-Sublime-Text-2-and-3.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Home.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Crash-dump.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Console-and-timers.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Icons.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/List-of-apps-and-companies-using-nw.js.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/How-to-run-apps.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Window.md",
+		"/home/osabio/CHAT-R/html/backbone.html",
+		"/home/osabio/CHAT-R/drag.html",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Frameless-window.md",
+		"/home/osabio/Загрузки/nw.js/nw.js.wiki/Tutorials-on-Node-WebKit.md",
+		"/home/osabio/Загрузки/nwjs-v0.12.3-linux-x64/app/app.html",
+		"/home/osabio/Загрузки/nwjs-v0.12.3-linux-x64/app/package.json",
+		"/home/osabio/Загрузки/nwjs-v0.12.3-linux-x64/package.json",
+		"/home/osabio/соловьев/app.js",
+		"/home/osabio/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/osabio/CHAT-R/production/js/cloud.js",
+		"/home/osabio/oldoldchat/production/js/logic.js",
+		"/home/osabio/CHAT-R/html/departamento.html",
+		"/home/osabio/CHAT-R/appChat.js",
+		"/home/osabio/CHAT-R/LICENSE",
+		"/media/osabio/box+to/Monokai.tmTheme",
+		"/home/osabio/соловьев/server.js",
+		"/home/osabio/CHAT/appChat.js",
+		"/home/osabio/соловьев/router.js",
+		"/home/osabio/соловьев/index.js",
+		"/home/osabio/CHAT/html/backbone.html",
+		"/home/osabio/CHAT/production/js/happy.js",
+		"/home/osabio/CHAT/production/js/login.js",
+		"/home/osabio/CHAT/production/js/logica.js",
+		"/home/osabio/CHAT/html/cloud.html",
+		"/home/osabio/CHAT/html/index.html",
+		"/home/osabio/CHAT/production/js/routers.js",
+		"/home/osabio/.kde/Recycled.bin/get.rcc/YIF/_1.jpg",
+		"/home/osabio/.kde/Recycled.bin/3bsed.avi",
+		"/home/osabio/.kde/Recycled.bin/get.rcc/654.jpg",
+		"/home/osabio/.config/sublime-text-3/Packages/User/socket-on.sublime-snippet",
+		"/home/osabio/CHAT/gulpfile.js",
+		"/home/osabio/CHAT/static/js/routers.js",
+		"/home/osabio/CHAT/node_modules/gulp-nodemon/README.md",
+		"/opt/sublime_text/changelog.txt",
+		"/home/osabio/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/osabio/.config/sublime-text-3/Local/Session.sublime_session",
+		"/home/osabio/CHAT/chat.sublime-project",
+		"/home/osabio/CHAT/static/css/colors.less",
+		"/home/osabio/CHAT/LICENSE.txt",
+		"/home/osabio/CHAT/backbone.html",
+		"/home/osabio/CHAT/static/js/logic.js",
+		"/home/osabio/CHAT/static/css/roboto.css",
+		"/home/osabio/CHAT/static/js/yepnope.js",
+		"/home/osabio/CHAT/static/js/app.js",
+		"/home/osabio/CHAT/static/js/socket.io-stream.js",
+		"/home/osabio/CHAT/static/js/main.js",
+		"/home/osabio/CHAT/static/css/google.css",
+		"/home/osabio/CHAT/static/css/chatsfg.css",
+		"/home/osabio/CHAT/static/css/demo.css",
+		"/tmp/tmpdo_kbg.txt",
+		"/tmp/tmpn9zi_a.html",
+		"/home/osabio/CHAT/msg.json",
+		"/home/osabio/CHAT/ex.js",
+		"/home/osabio/CHAT/chat.js",
+		"/home/osabio/sdf",
+		"/home/osabio/CHAT/static/css/msg.min.css",
+		"/home/osabio/CHAT/admin.html"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 153.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console.log",
+			"fmsg",
+			"fmsgmsg",
+			"fmsg",
+			"fmsgmsg",
+			"window",
+			"fmsg",
+			"indx",
+			"idnx",
+			"safe",
+			"mouse",
+			"writeMessage",
+			"formatMSG",
+			"clock",
+			"dia",
+			"login2",
+			"login2.",
+			"format",
+			"scrollToDiv",
+			"$laypass",
+			"safe",
+			"shortName",
+			"socket",
+			"rooms",
+			"login.isLogin",
+			"format",
+			"clock",
+			"month",
+			"reloadPage",
+			"scrollToDiv",
+			"shortName",
+			"safe",
+			"$laypass",
+			"hideAuth",
+			"init(",
+			"session(",
+			"init",
+			"window.soc",
+			"init",
+			"session()",
+			"$laypass",
+			"hideAuth(",
+			"showAuth",
+			" showAuth();",
+			"hideAuth",
+			"init",
+			"session",
+			"rooms",
+			"magic",
+			"Произведена успешная попытка загрузки управления ",
+			"user)",
+			"IP",
+			"get_users",
+			"/api/users",
+			"logtime",
+			"Попытка",
+			".use",
+			".admin",
+			"admin",
+			"nav",
+			"console.log",
+			"formatMSG",
+			"_",
+			"formatMSG",
+			"genfiles",
+			"safe",
+			"fmsgmsg",
+			"fmsg",
+			"genFilesList",
+			"safe",
+			"clock.",
+			"formatSize",
+			"safe",
+			"module.exports.safe",
+			"module",
+			"msg",
+			"format",
+			"_myModule",
+			"3.8.11",
+			"window",
+			"reload",
+			"save",
+			"api/",
+			"room",
+			"rooms",
+			"msg=",
+			"formatms",
+			"format",
+			"formatMSG",
+			"formatmsg",
+			".get",
+			"scroll",
+			"loade",
+			"load",
+			"readmore",
+			"$messages",
+			".empty",
+			"empty",
+			"article",
+			"APP",
+			"loade",
+			"session(",
+			"session",
+			"loade",
+			"writeMessage",
+			"formatmsg",
+			"console.log",
+			"formatMSG",
+			"genFilesList",
+			"formatSize",
+			"nick2fio",
+			"year",
+			"message",
+			"concat",
+			"refresh",
+			"changed",
+			"replace",
+			"gutil",
+			"rename",
+			"minifyCSS",
+			"require",
+			"auth",
+			"messages",
+			".attach",
+			"writeMessage",
+			"message",
+			"attach",
+			"edit"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"magic.fmsg",
+			"magic.fmsgmsg",
+			"login",
+			"login.",
+			"$('.laypass')",
+			"login2.isLogin",
+			"$('.laypass')",
+			"login2.hideAuth(",
+			"login2.showAuth",
+			" login2.showAuth();",
+			"login2",
+			"magic.msg.format",
+			"magic.str.safe",
+			"magic.dt.",
+			"magic.clock.",
+			"safe",
+			"message",
+			"magic",
+			"'",
+			"`<%= \\1 %>`",
+			"",
+			"+\" ",
+			" \"+",
+			"\"fomin\"",
+			"'",
+			",",
+			"",
+			"учитель",
+			"ученик",
+			"администратор",
+			"директор",
+			"замдиректора",
+			"\"pass\": \"\\1\",\\n\\t\\t\\t\"role\":\"pupil\"\\n",
+			"\"pass\": \"\\1\",\\n\"role\":\"pupil\"\\n",
+			"            \"for\": [],\n            \"without\": []",
+			"admin",
+			"function ()",
+			"../production",
+			"production/js/",
+			"$inp",
+			"///////////////////////////////////////////////////",
+			"upload_tomsg",
+			"attachFile",
+			"\"",
+			".removeClass('hidden')",
+			"$",
+			"",
+			"../font/Roboto",
+			"14",
+			"11",
+			"01",
+			"\"day\": 16,",
+			"\"day\": 9,",
+			"\"",
+			"console.log(logTime()+",
+			"livereloadPort",
+			"siteApp",
+			"attached_tree[",
+			"attached_tree",
+			"",
+			"../font/.ttf",
+			"ttf",
+			"",
+			"$files_area",
+			"\\1; 4; В",
+			"\\1; 4; Б",
+			"\\1; 4; А",
+			"\\1; 4А",
+			"\\1; 4А\\n",
+			"\\1\\n",
+			"",
+			"\"desc\": \"\",\\n\"size\": \"0\",\\n",
+			"\\1\\n\"room\": \"all\",\\n",
+			"messageBase",
+			"!important",
+			"\\1 important!;",
+			".from",
+			"osabio",
+			"messages",
+			"sessionStorage",
+			"127.0.0.1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "departament.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/osabio/CHAT-R/dev/less/dep.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								414,
+								344
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/osabio/CHAT-R/production/js/logic.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4540,
+								4540
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3479.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/osabio/CHAT-R/production/js/magic.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3980,
+								3980
+							]
+						],
+						"settings":
+						{
+							"auto_name": "(function() {",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3203.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/osabio/CHAT-R/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								454,
+								454
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "admin.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1208,
+								1208
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 236.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/osabio/CHAT-R/production/js/admin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6279,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6249,
+								6249
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3829.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "rooms.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1152,
+								1152
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/osabio/CHAT-R/production/js/rooms.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7018,
+								7018
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/osabio/CHAT-R/appChat.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13517,
+								13517
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"save_is_dirty": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8865.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/osabio/CHAT-R/production/js/sckt.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/osabio/CHAT-R/production/js/login.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2481,
+								2481
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1539.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/home/osabio/CHAT-R/json/config.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 621.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/home/osabio/CHAT-R/json/base.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20824,
+								20824
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (Colorcoded) (Colorcoded) (Colorcoded).tmTheme",
+							"colorcode": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 15815.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 142.0
+	},
+	"output.figlet_preview":
+	{
+		"height": 187.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.nodejs":
+	{
+		"height": 282.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 29.0
+	},
+	"pinned_build_system": "",
+	"project": "CHAT-R.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/vocal180.github.com/vocal.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"@header-bg"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 228.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

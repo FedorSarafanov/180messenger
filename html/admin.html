@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/google.css">
+    <link rel="stylesheet" href="../css/admin.min.css">
+    <!-- <link rel="stylesheet" href="../css/msg.min.css"> -->
+    <link rel="stylesheet" href="../css/chatsfg.css">
+    <link rel="stylesheet" href="../css/nwapp.css">
+    <meta name="robots" content="noindex,nofollow"/>
+    <!-- setstyle -->
+    <title>Управление пользователями</title>
+</head>
+
+<body>
+  <header>
+  <nav>
+      <a href="/cpanel"><i class="i-home"></i></a>
+      <div class="delete">Удалить пользователя</div>
+      <div class="add">Добавить пользователя</div>
+      <div class="test">Сохранить результат</div>
+      <div class="logout">Выйти</div>      
+  </nav>
+
+  </header>
+    <script src="//localhost:35729/livereload.js"></script>  
+    <!-- setroom -->
+    <script src="js/yepnope-2.0.0.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/$.js"></script>    
+    <script src="js/md5.js"></script>
+    <script src='js/autoresize.jquery.min.js'></script>   
+    <script src="js/socket.io.js"></script>    
+    <script src="js/sckt.js"></script>    
+    <script src="js/login.js"></script>
+    <script src="js/admin.js"></script>
+  
+  <main>
+    <div class="users">
+        <span class="tableTitle">
+            <span class="no">№</span>
+            <span class="nick">Логин</span>
+            <span class="name">Имя</span>
+            <span class="otch">Отчество</span>
+            <span class="family">Фамилия</span>            
+            <span class="type">Группа</span>
+            <span class="password">Пароль</span>
+        </span>     
+    </div>
+  </main>
+<!-- Техническая разметка -->
+<div class="laypass hidden">
+    <div class="center">
+        <input placeholder="Логин" type="text">
+        <input placeholder="Пароль" type="password">       
+        <button id="login">Войти</button> 
+    </div>
+</div>  
+</body>
+</html>

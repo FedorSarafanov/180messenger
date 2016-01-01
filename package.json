@@ -1,0 +1,38 @@
+{
+  "name": "lyceum180-chat",
+  "version": "1.1.1153",
+  "description": "Корпоративный чат лицея №180",
+  "main": "appChat.js",
+  "dependencies": {
+    "body-parser": "~1.14.2",
+    "colors": "~1.1.2",
+    "connect-livereload": "~0.5.4",
+    "express": "~4.13.3",
+    "formidable": "~1.0.17",
+    "gulp": "~3.9.0",
+    "gulp-bump": "~1.0.0",
+    "gulp-changed": "~1.3.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-less": "~3.0.5",
+    "gulp-minify-css": "~1.2.3",
+    "gulp-nodemon": "~2.0.6",
+    "gulp-notify": "~2.2.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-server-livereload": "~1.5.4",
+    "gulp-util": "~3.0.7",
+    "gulp-webserver": "~0.9.1",
+    "iconv-lite": "~0.4.13",
+    "less-plugin-autoprefix": "~1.5.1",
+    "mysql": "~2.10.0",
+    "nw-notify": "~0.2.3",
+    "socket.io": "~1.3.7",
+    "socket.io-stream": "~0.9.0",
+    "tiny-lr": "~0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Фёдор Сарафанов <sfg180@yandex.ru>",
+  "license": "BSD-2-Clause"
+}

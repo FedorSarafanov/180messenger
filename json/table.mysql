@@ -1,0 +1,8 @@
+mysql -u root -p
+CREATE GRANT ALL PRIVILEGES ON * . * TO 'osabio'@'localhost';
+USER 'osabio'@'localhost' IDENTIFIED BY '999';
+FLUSH PRIVILEGES;
+CREATE DATABASE db
+USE db
+ALTER DATABASE db CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE TABLE `messages` (`num` INT(11) MEDIUMINT NOT NULL AUTO_INCREMENT, `message` text, `from` text, `room` text, `attach` text, `to` text, `id` text, `time` text, `day` text, `month` text, `year` text, `ip` text, `color` text, `family` text, `title` text, `patronymic` text, , PRIMARY KEY(`num`));

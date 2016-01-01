@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/roboto.css">
+    <link rel="stylesheet" href="css/dep.min.css">
+    <link rel="stylesheet" href="css/msg.min.css">
+    <link rel="stylesheet" href="css/chatsfg.css">
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- setstyle -->
+    <title>Лицейский мессенджер</title>
+</head>
+
+<body>
+    <script src="js/yepnope-2.0.0.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/happy.js"></script>
+    <script src="js/backbone-min.js"></script>    
+    <script src="js/$.js"></script>
+    <!--
+    // <script>
+    // var jsfile = "cloud"
+    // var ioIP = "osabio-dellpc";
+    // var ioPORT = "8008";
+
+    // //Загрузим логику только после подключения к сокету
+    // yepnope.injectJs('http://' + ioIP + ':' + ioPORT + '/socket.io/socket.io.js', function() {
+    //     window.socket = io.connect('http://' + ioIP + ':' + ioPORT);
+    //     // yepnope.injectJs('js/'+jsfile+'.js');
+    // })
+    // $.get(
+    //     "/cloud.html",
+    //     onAjaxSuccess
+    // );
+
+
+    function onAjaxSuccess(data) {
+        $('body').append($(data).find('.files'));
+        $.getScript("/js/cloud.js");
+    }
+    </script>
+    -->
+    <header>123</header>
+    <main>
+    <nav></nav>
+        <article></article>
+    </main>
+    <script>
+
+    function loade (user, room, length) {
+        $.get(
+          "/upload/get",
+          {
+            user: user,
+            room: room,
+            length: length,
+          },
+          function(data){
+            $('article').append($(data));
+          }
+        );  
+    }
+
+    loade('osabio','all',6)
+    </script>
+</body>
+
+</html>

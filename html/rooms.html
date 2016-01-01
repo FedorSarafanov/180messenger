@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/roboto.css">
+    <link rel="stylesheet" href="../css/rooms.min.css">
+    <!-- <link rel="stylesheet" href="../css/msg.min.css"> -->
+    <link rel="stylesheet" href="../css/chatsfg.css">
+    <link rel="stylesheet" href="../css/nwapp.css">
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- setstyle -->
+    <title>Управление чатом</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/cpanel"><i class="i-home"></i></a>
+            <div class="delete">Удалить чат</div>
+            <div class="add">Добавить чат</div>
+            <div class="test">Сохранить</div>
+            <div class="logout">Выйти</div>
+        </nav>
+    </header>
+    <script src="//localhost:35729/livereload.js"></script>
+    <!-- setroom -->
+
+    <script src="js/underscore-min.js"></script>
+    <script src="js/$.js"></script>
+    <script src="js/md5.js"></script>
+    <script src='js/autoresize.jquery.min.js'></script>
+    <!-- // <script src="http://127.0.0.1:8008/socket.io/socket.io.js"></script> -->
+    <script src="js/socket.io.js"></script>    
+    <script src="js/sckt.js"></script>    
+    <script src="js/login.js"></script>
+    <script src="js/rooms.js"></script>
+
+    <div class="table-title">
+        <span class="rooms">Название чата</span>
+        <span class="users">Включенные пользователи</span>
+        <span class="usersgroup">Включенные группы</span>
+        <span class="userswithout">Исключенные пользователи</span>
+    </div>
+    <main>
+        <div class="rooms">
+            <!-- <span class="room" addr="{0}">{1}</span> -->
+        </div>
+        <div class="users">
+            <!-- <span class="user" nick="{0}"></span> -->
+        </div>
+        <div class="usersgroup">
+            <span class="group" group="администратор">администратор</span>
+            <span class="group" group="директор">директор</span>
+            <span class="group" group="замдиректора">замдиректора</span>
+            <span class="group" group="бухгалтер">бухгалтер</span>
+            <span class="group" group="учитель">учитель</span>
+            <span class="group" group="ученик">ученик</span>
+            <span class="group" group="педадог до">педадог до</span>            
+            <span class="group" group="завхоз">завхоз</span>            
+        </div>
+        <div class="userswithout">
+            
+        </div>
+    </main>
+    <!-- Техническая разметка -->
+    <div class="laypass hidden">
+        <div class="center">
+            <input placeholder="Логин" type="text">
+            <input placeholder="Пароль" type="password">
+            <button id="login">Войти</button>
+        </div>
+    </div>
+</body>
+
+</html>

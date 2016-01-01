@@ -1,0 +1,160 @@
+@import "colors.less";
+@import "snippets.less";
+@white: #ffffff;
+@gray: #ccc;
+@dark: darken(@white, 40%);
+
+
+.bg-transparent(@color, @alpha: 1)
+{
+    background: rgba( red(@color), green(@color), blue(@color), @alpha);
+}
+
+body,html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: sans;
+    font-size: 1em;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    border-bottom: 1px solid @dark;
+    nav{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        div,a{
+            display: block;
+            text-decoration: none;
+            padding: 1em;
+            color: darken(@white, 90%);
+            &:hover, &:focus{
+                cursor: default;
+                outline: none;
+                background: @dark;
+            }
+        }
+    }
+}
+
+main{
+    display: flex;
+    flex: 1;
+    flex-direction: row;    
+    .users{
+        border-right: 1px solid @dark;
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        .user, .tableTitle{
+            display: flex;
+            flex-direction: row;
+            align-items: stretch; 
+            span{
+                overflow: hidden;
+            }
+            &:hover, &:focus{
+                outline: none;
+                background:  darken(@white, 10%);
+                cursor: default;
+                
+            }
+            .nick, .otch, .family, .name, .password{
+                &:hover{
+                    // cursor: text;                    
+                }
+            }
+            .nick, .otch, .family, .name, .password, .no, .type{
+                // text-align: center;
+                @lr: 0.7em;
+                @bt: 0.3em;
+                padding: @bt @lr @bt @lr;
+                box-sizing: border-box;
+                @width: 1px;
+                @bcolor: @dark;
+                // border-left: @width solid @bcolor;
+                border-right: @width solid @bcolor;
+                border-bottom: @width solid @bcolor;
+            }
+            .no{
+                flex: 0.25;
+            }
+            .nick{
+                flex: 1;
+            }
+            .otch{
+                flex: 1.5;
+            }
+            .family{
+                flex: 1.5;
+            }
+            .name{
+                flex: 1;
+            }
+            .type{
+                flex: 0.75;
+            }
+            .password{
+                flex: 1.5;
+                background: #000;
+                &:hover, &:focus{
+                    background: transparent;
+                }
+            }                         
+        }
+        .tableTitle{
+            @bg: #eee;
+            background: @bg;
+            .password{
+                background-color: transparent;
+                
+            }
+            &:hover, &:focus{
+                outline: none;
+                cursor: default;
+                background: @bg !important;
+            }
+        }
+    }
+    .event{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        div{
+            background: #eee;
+            text-align: center;
+            padding: 1em;
+            &:hover{
+                cursor: default;
+                background: #ccc;
+
+            }
+        }
+    }
+    .users, .event{
+        box-sizing: border-box;
+    }
+}
+
+.selectable{
+    background: @selectable-bg;
+}
+
+[contenteditable="true"]{
+    cursor: text !important;
+    &:hover{
+        cursor: text !important;
+    }
+}
+
+// span[user=admin]{
+//     display: none !important;    
+// }
