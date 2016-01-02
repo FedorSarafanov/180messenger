@@ -60,27 +60,24 @@
             $body.css('overflow', 'visible');
         }
 
-        login.cod = '<div class="laypass hidden">'
-                    +'<div class="center">' 
-                    +'<input placeholder="Логин" type="text">' 
-                    +'<input placeholder="Пароль" type="password">' 
-                    +'<button id="login">Войти</button>' 
-                    +'</div>' 
-                    +'</div>';
+        login.cod = '<div class="laypass hidden">' + '<div class="center">' + '<input placeholder="Логин" type="text">' + '<input placeholder="Пароль" type="password">' + '<button id="login">Войти</button>' + '</div>' + '</div>';
 
         ///////////////////////////////////////////////////
         //////  Проверка на залогиненную сессию  //////////
         ///////////////////////////////////////////////////
         login.session = function(inits) {
-            if ($('.laypass').length==0) {
+            
+            // window.inits = inits();
+            if ($('.laypass').length == 0) {
                 $('body').append(login.cod);
             }
             if (!login.isLogin()) {
                 login.showAuth();
             } else {
-                inits();                
-                login.hideAuth();
                 console.log('Верефикация проверена');
+                inits();
+                // login.hideAuth();                
+                // login.reloadPage();
             }
         }
 
@@ -93,10 +90,60 @@
             sessionStorage["pass"] = CryptoJS.MD5($('.laypass').find('input[type=password]').val());
             var from = sessionStorage["from"];
             var pass = sessionStorage["pass"];
-            socket.emit("verification", {
-                from,
-                pass
-            });
+            // socket.emit("verification", {
+            //     from,
+            //     pass
+            // });
+
+            $.get(
+                '/api/auth', {
+                    from: from,
+                    pass: pass
+                },
+                function(data) {
+
+                    switch (data) {
+                        case "success":
+                            {
+                                sessionStorage['loginde'] = 'success';
+                                $('.laypass').find('input').removeClass('redBorder')
+                                console.log('Верификация пройдена')
+                                // inits()
+                                login.reloadPage();
+
+                                break
+                            }
+                        case "failed-pass":
+                            {
+                                sessionStorage['loginde'] = 'failed';
+
+                                console.log('Верификация не пройдена, соединение не разорвано.')
+
+                                $('.laypass').find('input').removeClass('redBorder')
+                                $('.laypass').find('input:password').addClass('redBorder')
+
+                                break
+                            }
+                        case "failed-login":
+                            {
+                                sessionStorage['loginde'] = 'failed';
+
+                                console.log('Верификация не пройдена, соединение не разорвано.')
+
+                                $('.laypass').find('input').removeClass('redBorder')
+                                $('.laypass').find('input:text').addClass('redBorder')
+
+                                break
+                            }
+
+                        default:
+                            {
+                                console.log('ERROR AUTH!');
+                            }
+                    }
+
+                }
+            )
         }
 
 

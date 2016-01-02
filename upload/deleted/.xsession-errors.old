@@ -1,0 +1,9 @@
+openConnection: connect: Нет такого файла или каталога
+cannot connect to brltty at :0
+Сценарий для none запущен из run_im.
+Сценарий для auto запущен из run_im.
+Сценарий для default запущен из run_im.
+init: Процесс update-notifier-crash (/var/crash/susres.2015-12-24_17:13:20.718261.crash) main (2026) завершен с кодом 1
+init: Процесс update-notifier-crash (/var/crash/susres.2015-12-26_17:16:15.460517.crash) main (2027) завершен с кодом 1
+init: Disconnected from notified D-Bus bus
+init: Процесс startxfce4 main (2147) завершен с помощью сигнала TERM

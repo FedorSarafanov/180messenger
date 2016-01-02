@@ -1,5 +1,5 @@
 var gulp = require('gulp'),  
-	// refresh 	 = require('gulp-livereload'),   //Перезагрузка при вызове refresh(nameserver)
+
 	webserver    = require('gulp-webserver'),    //Сервер локалхоста
 	concat       = require('gulp-concat'),       //Объединяет файлы в один
 	minifyCSS    = require('gulp-minify-css'),   //Сжимает, оптимизирует
@@ -7,12 +7,10 @@ var gulp = require('gulp'),
 	rename       = require("gulp-rename"),       //Переименование
 	gutil 		 = require('gulp-util'), 		 //Работа с файлами
 	autoprefixer = require('less-plugin-autoprefix'), // Автопрефиксер свойств для старых браузеров
-	// hf 			 = require('gulp-headerfooter'),
-	// replace 	 = require('gulp-replace'),
 	tinylr       = require('tiny-lr')(),
 	bump	     = require('gulp-bump'),
+	uglify       = require('gulp-uglify'),
 	changed      = require('gulp-changed'),
-	// markdown 	 = require('gulp-markdown');
     autoprefix   = new autoprefixer({browsers: ["last 5 versions"]}); //Свойства для браузеров от 2013 года	
 
 
@@ -42,6 +40,17 @@ gulp.task('styles', function () {
 	// notify('Генерация less...');
 });
 
+gulp.task('js', function () {
+	gulp.src('./production/js/logic.js')
+		.pipe(uglify())
+		.on('error', function (err) {
+	        gutil.log(err);
+	        this.emit('end');
+    	})
+		.pipe(rename({suffix: ".min"}))
+		.pipe(gulp.dest('./production/js/'));
+});
+
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 
@@ -65,6 +74,7 @@ gulp.task('watch', function() {
   gulp.watch('./html/*.html', notifyLiveReload);
   gulp.watch('./production/css/*.css', notifyLiveReload);
   gulp.watch('./production/js/*.js', notifyLiveReload);
+  // gulp.watch('./production/js/*.js', ['js']);
 });
 
 // gulp.task('reload', function () {

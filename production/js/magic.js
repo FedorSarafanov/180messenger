@@ -177,10 +177,6 @@
         return Math.round(length) + ' ' + type[i]; //length.toFixed(2) + ' ' + type[i];
     }
 
-    magic.magic = function() {
-        alert(ff(2))
-    }
-
     magic.interface = {}
 
     magic.interface.modal = function(textq, yes, no, cbYes, cbNo, type) {

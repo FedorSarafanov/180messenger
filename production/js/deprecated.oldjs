@@ -1,0 +1,89 @@
+
+
+
+    ///////////////////////////////////////////////////
+    /// Показ панели управления сообщением по hover ///
+    ///////////////////////////////////////////////////
+    $(document).on({
+        mouseenter: function() {
+            // $(this).children('.icon-trash-empty').show();
+            // $(this).children('.icon-save').show();  //Временно отключим.
+            // $(this).children('.icon-edit').show();
+        },
+        mouseleave: function() {
+            // $(this).children('.icon-trash-empty').hide();
+            // $(this).children('.icon-save').hide(); //Временно отключим.
+            // $(this).children('.icon-edit').hide();
+        }
+    }, '.msg')
+
+
+
+    ///////////////////////////////////////////////////
+    /// Запуск редактирования сообщения в textarea ////
+    ///////////////////////////////////////////////////
+    $article.on('click', '.msg .icon-edit', function(event) {
+
+        var $msg = $(this).parent();
+        $msg.html($msg.html().replace($msg.attr('msg'), ''));
+        if (!$msg.children().is('textarea')) {
+            $msg.append('<textarea>' + $msg.attr('msg') + '</textarea>');
+        }
+
+        event.preventDefault();
+    })
+
+
+
+    ///////////////////////////////////////////////////
+    /// Сохранение отредактированного сообщения ///////
+    ///////////////////////////////////////////////////
+    $article.on('click', '.msg .icon-save', function(event) {
+
+        var $msg = $(this).parent();
+        var text = $msg.children('textarea').val();
+        $msg.children('textarea').remove();
+        $msg.find('br').first().after(text);
+
+        socket.emit('editMsg', $msg.attr('id'), text);
+        $msg.attr('msg', text);
+
+        event.preventDefault();
+    });
+
+
+
+    ///////////////////////////////////////////////////
+    ///Сброс редактирования сообщения и убр. textarea//
+    ///////////////////////////////////////////////////
+    $article.on('keyup', '.msg textarea', function(event) {
+
+        if (event.keyCode == 27) { //Если клавиша ESCAPE
+            var $msg = $(this).parent();
+            $msg.children('textarea').remove();
+            $msg.find('br').first().after($msg.attr('msg'));
+
+        }
+
+    })
+
+
+
+    ///////////////////////////////////////////////////
+    //Удаление сообщения и запрос на удаление серверу//
+    ///////////////////////////////////////////////////
+    $article.on('click', '.msg .icon-trash-empty', function(event) {
+
+        var $msg = $(this).parent();
+
+        magic.interface.modal('Вы действительно хотите удалить сообщение?', 'Да', 'Нет', function() {
+            socket.emit('removeMsg', $msg.attr('id'))
+            $msg.remove()
+
+        }, function() {}, 'error');
+
+
+        event.preventDefault();
+    })
+
+

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/chatsfg.css">
     <link rel="stylesheet" href="css/nwapp.css">
     <meta name="robots" content="noindex,nofollow" />
-
     <title>Лицейский мессенджер</title>
 </head>
 
@@ -17,54 +16,44 @@
     <script src="//127.0.0.1:35729/livereload.js"></script>
     <!-- <script src="https://8465f594.ngrok.io/livereload.js"></script> -->
     <!-- setroom -->
-
     <script src="js/underscore-min.js"></script>
-    <script src="js/magic.js"></script>    
+    <script src="js/magic.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/md5.js"></script>
-    <script src='js/autoresize.jquery.min.js'></script> 
-
+    <script src='js/autoresize.jquery.min.js'></script>
     <!-- <script src="http://192.168.1.120:8008/socket.io/socket.io.js"></script> -->
-    <script src="http://127.0.0.1:8008/socket.io/socket.io.js"></script>
+    <script src="js/socket.io.js"></script>
     <script src="js/sckt.js"></script>
-    <script src="js/login.js"></script>            
+    <script src="js/login.js"></script>
     <script src="js/logic.js"></script>
-
     <header>
-        <span class="c180">#180</span>
-        Лицейский мессенджер
+        <span class="c180">#180</span> Лицейский мессенджер
     </header>
-
     <main>
         <nav>
             <a class="room" href="/im" room="im">Личные сообщения</a>
             <a class="room" href="/cloud" room="cloud">Облако файлов</a>
         </nav>
-
         <section>
             <footer>
                 <textarea name="message_text" id="message_text" autofocus placeholder="Введите ваше сообщение. Отправьте с помощью нажатия клавиш &quot;Shift+Enter&quot;, или нажмите кнопку отправки сообщения - левая в нижнем правом углу поля ввода"></textarea>
-
                 <div class="mess">
                     <div class="buttons">
                         <button title="Отправить сообщение" type="button" id="message_btn"><i class="icon-msg"></i></button>
                         <button title="Загрузить к сообщению файлы" id="upload_tomsg" type="button"><i class="icon-add"></i></button>
-                        <button title="Добавить к сообщению файлы из облака" id="fromCloud" type="button"><i class="icon-files"></i></button> 
+                        <button title="Добавить к сообщению файлы из облака" id="fromCloud" type="button"><i class="icon-files"></i></button>
                         <select id="to" style="display: none;">
                             <option value="Всем">Всем</option>
                         </select>
+                        <button title="Удалить выбранные сообщений" id="rmMsgs" type="button"><i class="icon-trash-empty"></i></button>
                         <button title="Закончить сессию" type="button" id="logout"><i class="icon-logout"></i></button>
-                    </div> 
+                    </div>
                 </div>
-
             </footer>
             <progress value="0" max="100"></progress>
-
             <article id="messages">
             </article>
-
         </section>
-
         <div class="files hidden">
             <div class="file_panel">
                 <button title="Удалить файлы из облака" id="removefiles" type="button"><i style="display: block !important" class="icon-trash-empty"></i></button>
@@ -75,24 +64,20 @@
             <progress value="0" max="100"></progress>
             <span class='c-title' href='#'>
                 <span class='c-file'>Имя файла</span>
-                <span class='c-nick'>Ник</span>
-                <span class='c-date'>Дата</span>
-                <span class='c-size'>Размер файла</span>
+            <span class='c-nick'>Ник</span>
+            <span class='c-date'>Дата</span>
+            <span class='c-size'>Размер файла</span>
             </span>
             <!-- files -->
         </div>
-        
         <div class="im hidden">
         </div>
     </main>
-
     <div class="file_upload">
         <div>Файл не выбран</div>
         <input type="file" name="upload">
     </div>
-
     <!-- endscript -->
-
 </body>
 
 </html>

@@ -59,7 +59,9 @@ var siteApp = express(),
 var bodyParser = require("body-parser");
 
 //Here we are configuring express to use body-parser as middle-ware.
-siteApp.use(bodyParser.urlencoded({ extended: false }));
+siteApp.use(bodyParser.urlencoded({
+    extended: false
+}));
 siteApp.use(bodyParser.json());
 
 // var livereload = require('connect-livereload'); //LiveReload, отключить на продакшне
@@ -181,34 +183,64 @@ siteApp.get('/api/users', function(req, res) {
 
     var user = req.query.user;
 
-    console.log(logTime()+"Произведена успешная попытка загрузки управления чатами с IP "+String(req.headers.host).use+" пользователем "+user.use);
+    // console.log(logTime()+"Произведена успешная попытка загрузки таблицы пользователей (без паролей) с IP "+String(req.headers.host).use+" пользователем "+user.use);
 
     res.writeHead(200, {
         "Content-Type": "text/plain",
         "Content-Encoding": "utf8"
     });
 
-    if (names[user].role == "администратор") {
-        try {
-            var usersArray = [];
+    try {
+        var usersArray = [];
 
-            for (var i = 0; i < users.length; i++) {
-                usersArray.push({
-                    title: nick2fio(users[i]),
-                    role: names[users[i]].role,
-                    from: users[i]
-                })
-            }
-            res.write(JSON.stringify(usersArray));
-
-        } catch (e) {
-            console.log(logTime() + e);
+        for (var i = 0; i < users.length; i++) {
+            usersArray.push({
+                title: nick2fio(users[i]),
+                role: names[users[i]].role,
+                from: users[i]
+            })
         }
-    } else {
-        res.write('no auth');
+        res.write(JSON.stringify(usersArray));
+    } catch (e) {
+        console.log(logTime() + e);
     }
     res.end();
 })
+
+siteApp.get('/api/auth', function(req, res) {
+
+    var user = String(req.query.from);
+    var pass = String(req.query.pass);
+    var ip = String(req.headers.host);
+
+    // console.log(logTime()+"Произведена успешная попытка загрузки таблицы пользователей (без паролей) с IP "+.use+" пользователем "+user.use);
+
+    res.writeHead(200, {
+        "Content-Type": "text/plain",
+        "Content-Encoding": "utf8"
+    });
+
+
+    try {
+        console.log(logTime() + 'Попытка входа с IP ' + ip.use + ' под данными: md5(pass)=' + pass.use + ', login=' + user.use);
+        if (names[user] != undefined) {
+            if (md5(names[user]["pass"]) != pass) {
+                res.write('failed-pass')
+                console.log(logTime() + 'Неверный пароль. Не аутенфицирован.'.warn);
+            } else {
+                res.write('success')
+                console.log(logTime() + 'Успешная аутенфикация'.info);
+            }
+        } else {
+            res.write('failed-login')
+            console.log(logTime() + 'Неверное имя пользователя. Не аутенфицирован.'.warn);
+        }
+    } catch (e) {
+        console.log(logTime() + e);
+    }
+    res.end();
+})
+
 
 siteApp.get('/api/allrooms', function(req, res) {
 
@@ -371,8 +403,6 @@ siteApp.post('/api/upload', function(req, res) {
     form.on('end', function() { //Событие по завершении загрузки
 
         try {
-            console.log(file.path);
-            console.log(form.uploadDir + file.file);
             fs.rename(file.path, form.uploadDir + file.file, function(err) {
                 if (err) console.log(logTime() + 'ERROR: ' + err);
             });
@@ -531,29 +561,6 @@ io.sockets.on('connection', function(client) { //Всего 10 обработч�
         client.disconnect();
     };
 
-    client.on('verification', function(data) {
-        //Верефикация login&pass. 
-        //TODO: Приписывать client.id верефикационные данные, 
-        //чтобы не костылить с небезопасной проверкой по имени залогиненного пользователя на клиента.
-        try {
-            console.log(logTime() + 'Попытка входа с IP ' + ip.use + ', ID ' + id + ' под данными: md5(pass)=' + data["pass"].use + ', login=' + data["from"].use);
-            if (names[data["from"]] != undefined) {
-                if (md5(names[data["from"]]["pass"]) != data["pass"]) {
-                    client.emit('failed-pass');
-                    console.log(logTime() + 'Неверный пароль. Не аутенфицирован.'.warn);
-                } else {
-                    client.emit('success');
-                    console.log(logTime() + 'Успешная аутенфикация'.info);
-                }
-            } else {
-                client.emit('failed-login');
-                console.log(logTime() + 'Неверное имя пользователя. Не аутенфицирован.'.warn);
-            }
-        } catch (e) {
-            console.log(logTime() + e);
-        }
-    });
-
 
     client.on('message', function(message) {
         //Событие   п р и ш е д ш е г о   сообщения.
@@ -633,24 +640,6 @@ io.sockets.on('connection', function(client) { //Всего 10 обработч�
     })
 
 
-    client.on('get_users', function() {
-        try {
-            var usersArray = [];
-
-            for (var i = 0; i < users.length; i++) {
-
-                usersArray.push({
-                    title: nick2fio(users[i]),
-                    from: users[i]
-                });
-            };
-            client.emit('add_users', usersArray);
-
-        } catch (e) {
-            console.log(logTime() + e);
-        }
-    });
-
     client.on('get_users_table', function(user) { //Выполним только если у user есть админская группа
         try {
             console.log(logTime() + 'Произведена успешная попытка загрузки управления пользователями с IP ' + ip.use + ' пользователем ' + user.use);
@@ -667,7 +656,7 @@ io.sockets.on('connection', function(client) { //Всего 10 обработч�
 
     client.on('write_users_table', function(usersArr) {
         try {
-            console.log(logTime() + 'Произведена успешная попытка изменения таблицы пользователей с IP '+ip.use);
+            console.log(logTime() + 'Произведена успешная попытка изменения таблицы пользователей с IP ' + ip.use);
             settings[0] = usersArr;
             writeSettings();
 

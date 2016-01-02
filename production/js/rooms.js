@@ -65,9 +65,6 @@ $(document).ready(function() {
                     _.each(JSON.parse(data), function(user, index) {
                         $('main .users, main .userswithout').append(userSTR.format(user.from, user.title + ' - ' + user.role));
                     });
-                }else{
-                    $('body').empty();
-                    $('body').html('<center><h1>ACCESS DENIED</h1><br><button onclick="sessionStorage.clear();reloadPage();">Зайти под другой учетной записью</button></center>')
                 }
             }
         )
@@ -84,6 +81,10 @@ $(document).ready(function() {
                     });                
                     $('.room[addr="all"]').addClass('selectable');
                     sel('all');
+                }else{
+                    $('body').empty();
+                    $('body').html('<center><h1>ACCESS DENIED</h1><br><button onclick="sessionStorage.clear();reloadPage();">Зайти под другой учетной записью</button></center>')
+
                 }
             }
         )        

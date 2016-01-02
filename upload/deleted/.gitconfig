@@ -1,0 +1,6 @@
+[user]
+	name = FedorSarafanov
+	email = sfg180@yandex.ru
+[core]
+	autocrlf = true
+	safecrlf = false

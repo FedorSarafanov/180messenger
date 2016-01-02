@@ -1,86 +1,20 @@
-"use strict";
-
-function ID() {
-    return String(CryptoJS.MD5(String(Math.random() + Math.random() + Math.random() + Math.random())));
-    //Уникальный идентефикатор сообщения
-}
-
-
-function dia(from, to) {
-    return CryptoJS.MD5([from, to].sort().join(""));
-    //Уникальный идентефикатор диалога
-}
-
+'use strict';
 
 $(document).ready(function() {
 
-    function getMessages(user, room, coff) {
-        $.get(
-            "/api/get", {
-                user: user,
-                room: room, 
-                coff: coff
-            },
-            function(data) {
-                if (data != 'END') {
-                    $('article').append($(data));
-                }
-            }
-        )
-        return true;
-    }
+    var attached = []
 
-    var maxscroll = 0;
+    var down = 0 //Счетчик страниц сообщений 0=>1-10 msg, 1=>11-20 msg, 2=>21-30 msg, etc
+    var maxscroll = 0 //Прокрутка для AJAX-подзагрузки
 
-    $(window).scroll(function() {
+    var $message_txt = $('#message_text')
+    var $to = $('#to')
+    var $inp = $('.file_upload').find('input')
 
-        if (($(window).scrollTop() >= $(document).height() - $(window).height()) & ($(window).scrollTop() > maxscroll)) {
-            maxscroll = $(window).scrollTop();
-            down += 1;
-            getMessages(sessionStorage["from"], sessionStorage["room"], down);
-        }
-    });
-
-
-
-    if (sessionStorage["room"] == undefined) {
-        sessionStorage["room"] = "all"
-    }
-
-    var users = [];
-    var to = "Всем"
-    var attached = [];
-
-    var down = 0; //Счетчик страниц сообщений 0=>1-10 msg, 1=>11-20 msg, 2=>21-30 msg, etc
-
-    var $messages = $("#messages");
-    var $message_txt = $("#message_text")
-    var $logout = $('#logout');
-    var $komu = $("#to");
-    var $body = $(document.body);
-    var $inp = $(".file_upload").find("input");
-
-    if (sessionStorage["text"] != undefined) {
-        $message_txt.val(sessionStorage["text"]);
-    }
-
-    if (sessionStorage["attached"] == undefined) {
-        sessionStorage['attached'] = JSON.stringify(attached)
-    } else {
-        attached = JSON.parse(sessionStorage['attached'])
-
-        _.each(attached, function(file) {
-            $('.mess').append(magic.magic.fmsgmsg.format(file))
-        })
-    }
-
-    $(window).unload(function() {
-        if ($message_txt.val().replace(/\ /g, '') != "") {
-            sessionStorage["text"] = $message_txt.val();
-        } else {
-            sessionStorage["text"] = "";
-        }
-    })
+    var $main = $('main')
+    var $section = $('section')
+    var $article = $('#messages')
+    var $attach = $('.mess')
 
 
 
@@ -132,7 +66,7 @@ $(document).ready(function() {
         formData.append('data', magic.dt.data());
         formData.append('desc', '');
 
-        xhr.open('post', "/api/upload", true);
+        xhr.open('post', '/api/upload', true);
         xhr.addEventListener('error', onError, false);
 
         xhr.send(formData);
@@ -158,7 +92,7 @@ $(document).ready(function() {
     function attachFile(file) {
         attached.push(file);
         sessionStorage['attached'] = JSON.stringify(attached);
-        $('.mess').append(magic.magic.fmsgmsg.format(file));
+        $attach.append(magic.fmsgmsg.format(file));
     }
 
 
@@ -166,81 +100,80 @@ $(document).ready(function() {
     ///////////////////////////////////////////////////
     ////////////////Открытие облака////////////////////
     ///////////////////////////////////////////////////
-    $("#fromCloud").on('click', function(event) {
+    $('#fromCloud').on('click', function(event) {
 
         $('.files-insert').remove();
-        $('section').hide();
+        $section.hide();
         $.get(
-            "/cloud",
-            onSuccess
-        );
-
-        function onSuccess(data) {
-            $('main').append($(data).find('.files').addClass('files-insert'));
-            $('.files-insert').removeClass('hidden');
-        }
+            '/cloud',
+            function(data) {
+                $main.append($(data).find('.files').addClass('files-insert'));
+                $('.files-insert').removeClass('hidden');
+            }
+        )
 
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     //////////////Триггерное выделение файлов//////////
     ///////////////////////////////////////////////////
-    $('main').on('click', '.files a', function(event) {
+    $main.on('click', '.files a', function(event) {
 
         $(this).toggleClass('selectable');
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     /////Добавление выделенных файлов в сообщение//////
     ///////////////////////////////////////////////////
-    $('main').on('click', '.files #tomsg', function(event) {
+    $main.on('click', '.files #tomsg', function(event) {
 
         $('.files-insert .selectable').each(function(a, el) {
             attachFile($(el).attr('href').replace('/upload/', ''));
         });
-        $('section').show();
+        $section.show();
         $('.files-insert').remove();
 
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     ///////////////Закрытие облака/////////////////////
     ///////////////////////////////////////////////////
-    $('main').on('click', '.files #closeCloud', function(event) {
+    $main.on('click', '.files #closeCloud', function(event) {
 
         $('.files-insert').remove();
-        $('section').show();
+        $section.show();
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     //Удаление выделенных файлов из облака (необратимо)
     ///////////////////////////////////////////////////
-    $('main').on('click', '.files #removefiles', function(event) {
+    $main.on('click', '.files #removefiles', function(event) {
 
-        var fq = "Вы собираетесь удалить файлы из облака. Данное действие необратимо! Если файлы были приклеплены к сообщениям, то ссылки на них будут нерабочими. Вы действительно хотите удалить эти файлы?";
-        var yesfq = "Да, эти файлы больше не нужны мне";
-        var cancelfq = "Отмена";
+        var fq = 'Вы собираетесь удалить файлы из облака. Данное действие необратимо! Если файлы были приклеплены к сообщениям, то ссылки на них будут нерабочими. Вы действительно хотите удалить эти файлы?';
+        var yesfq = 'Да, эти файлы больше не нужны мне';
+        var cancelfq = 'Отмена';
 
         magic.interface.modal(fq, yesfq, cancelfq, function() {
 
             $('.selectable').each(function(a, el) {
                 var $el = $(el);
-                if (($el.find('.c-nick').text() == sessionStorage["from"]) | (sessionStorage["from"] == "fomin")) { //nick
+                if (($el.find('.c-nick').text() == sessionStorage['from']) | (sessionStorage['from'] == 'fomin')) { //nick
                     $el.remove();
                     socket.emit('removeFile', $el.find('.c-file').text());
                 };
+                $el = null;
             });
 
         }, function() {
@@ -248,58 +181,58 @@ $(document).ready(function() {
         }, 'error');
 
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     ////////Нажатие на кнопку загрузки в облако////////
     ///////////////////////////////////////////////////
-    $('main').on('click', '.files #upload_tocloud', function(event) {
+    $main.on('click', '.files #upload_tocloud', function(event) {
 
         $inp.attr('to', 'oblako');
         $inp.click();
 
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     ///////Нажатие на кнопку загрузки в сообщение//////
     ///////////////////////////////////////////////////
-    $('main').on('click', '#upload_tomsg', function(event) {
+    $main.on('click', '#upload_tomsg', function(event) {
 
         $inp.attr('to', 'msg');
         $inp.click();
 
         event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     //////Событие подключения файла в input////////////
     ///////////////////////////////////////////////////   
-    $("input[name=upload]").on('change', function(event) {
+    $('input[name=upload]').on('change', function(event) {
         if (login.isLogin()) {
-            if ($inp.attr('to') == "oblako") {
+            if ($inp.attr('to') == 'oblako') {
                 uploadFile(event, false)
             } else {
                 uploadFile(event, true)
             }
         }
-    });
+    })
 
 
 
-    //   #    #   #  #####  #   #          ###   #   #  #####  #####  ####   #####    #     ###   ##### 
-    //  # #   #   #    #    #   #           #    #   #    #    #      #   #  #       # #   #   #  #     
-    // #   #  #   #    #    #   #           #    ##  #    #    #      #   #  #      #   #  #      #     
-    // #   #  #   #    #    #####           #    # # #    #    ####   ####   ####   #   #  #      ####  
-    // #####  #   #    #    #   #           #    #  ##    #    #      # #    #      #####  #      #     
-    // #   #  #   #    #    #   #           #    #   #    #    #      #  #   #      #   #  #   #  #     
-    // #   #   ###     #    #   #          ###   #   #    #    #####  #   #  #      #   #   ###   ##### 
+    // ###   #   #   ###   ##### 
+    //  #    #   #    #      #   
+    //  #    ##  #    #      #   
+    //  #    # # #    #      #   
+    //  #    #  ##    #      #   
+    //  #    #   #    #      #   
+    // ###   #   #   ###     #   
 
 
 
@@ -310,7 +243,7 @@ $(document).ready(function() {
 
         function rooms(user) {
             $.get(
-                "/api/rooms", {
+                '/api/rooms', {
                     user: user,
                 },
                 function(data) {
@@ -320,12 +253,55 @@ $(document).ready(function() {
             return true;
         }
 
-        socket.emit("get_users");
+        function getUsers() {
+            $.get(
+                '/api/users', {
+                    user: sessionStorage['from'],
+                },
+                function(data) {
+                    var json = JSON.parse(data);
+                    _.each(json, function(user) {
+                        $to.append('<option value=' + user.from + '>' + user.title + '</option>')
 
-        rooms(sessionStorage["from"]);
+                        if (sessionStorage['room'] == 'im') {
+                            $('.im').append('<a class="room" href="/{2}"" to="{1}" room="{2}">{0} [{1}]</a>'.format(user.title, user.from, dia(sessionStorage['from'], user.from)));
+                        }
 
-        getMessages(sessionStorage["from"], sessionStorage["room"], down);
+                    })
 
+                    $('[room=' + sessionStorage['room'] + ']').addClass('activeRoom');
+
+                    if ($('.activeRoom').attr('to') != undefined) {
+                        $('#to').val($('.activeRoom').attr('to'));
+                    }
+
+                }
+            )
+            return true;
+        }
+
+        if (sessionStorage['room'] == undefined) {
+            sessionStorage['room'] = 'all'
+        }
+
+        if (sessionStorage['text'] != undefined) {
+            $message_txt.val(sessionStorage['text']);
+        }
+
+        if (sessionStorage['attached'] == undefined) {
+            sessionStorage['attached'] = JSON.stringify(attached)
+        } else {
+            attached = JSON.parse(sessionStorage['attached'])
+
+            _.each(attached, function(file) {
+                $attach.append(magic.fmsgmsg.format(file))
+            })
+        }
+
+        rooms(sessionStorage['from']);
+
+        getUsers();
+        getMessages(sessionStorage['from'], sessionStorage['room'], down);
 
         login.hideAuth();
 
@@ -336,10 +312,10 @@ $(document).ready(function() {
     ///////////////////////////////////////////////////
     /////Выход из учетки и очистка sessionStorage /////
     ///////////////////////////////////////////////////
-    $logout.click(function() {
+    $('#logout').click(function() {
         sessionStorage.clear();
         magic.interface.reloadPage();
-    });
+    })
 
 
 
@@ -354,22 +330,90 @@ $(document).ready(function() {
 
 
     ///////////////////////////////////////////////////
+    //////   Уникальный идентефикатор сообщения ///////
+    ///////////////////////////////////////////////////
+    function ID() {
+        return String(CryptoJS.MD5(String(Math.random() + Math.random() + Math.random() + Math.random())));
+    }
+
+
+
+    ///////////////////////////////////////////////////
+    ///////// Уникальный идентефикатор диалога  ///////
+    ///////////////////////////////////////////////////
+    function dia(from, to) {
+        return CryptoJS.MD5([from, to].sort().join(''));
+    }
+
+
+
+    ///////////////////////////////////////////////////
+    /////////   Загрузка страницы сообщений.    ///////
+    ///////////////////////////////////////////////////
+    function getMessages(user, room, coff) {
+        $.get(
+            '/api/get', {
+                user: user,
+                room: room,
+                coff: coff
+            },
+            function(data) {
+                if (data != 'END') {
+                    $article.append($(data));
+                }
+            }
+        )
+        return true;
+    }
+
+
+    ///////////////////////////////////////////////////
+    /////////   AJAX-подзагрузка сообщений      ///////
+    ///////////////////////////////////////////////////
+    $(window).scroll(function() {
+
+        if (($(window).scrollTop() >= $(document).height() - $(window).height()) & ($(window).scrollTop() > maxscroll)) {
+            if (login.isLogin()) {
+                maxscroll = $(window).scrollTop();
+                down += 1;
+                getMessages(sessionStorage['from'], sessionStorage['room'], down);
+            }
+        }
+    })
+
+
+    ///////////////////////////////////////////////////
+    /////////  Сохранение набранного сообщения ////////
+    ///////////////////////////////////////////////////
+    $(window).unload(function() {
+        if ($message_txt.val().replace(/\ /g, '') != '') {
+            sessionStorage['text'] = $message_txt.val();
+        } else {
+            sessionStorage['text'] = '';
+        }
+    })
+
+
+
+    ///////////////////////////////////////////////////
     /////////   Отправка сообщения на сервер    ///////
     ///////////////////////////////////////////////////
     function sendMsg() {
-        var text = $("#message_text").val();
+        var text = $message_txt.val();
         if (text.length <= 0)
             return;
-        $message_txt.val("");
-        to = $komu.val();
-        socket.emit("message", {
+        $message_txt.val('');
+        // to = 
+        var msg = {
             message: text,
-            from: sessionStorage["from"],
-            room: sessionStorage["room"],
+            from: sessionStorage['from'],
+            room: sessionStorage['room'],
             attach: attached,
-            to: to,
+            to: $to.val(),
             id: ID()
-        });
+        };
+
+        socket.emit('message', msg);
         attached = [];
         sessionStorage['attached'] = JSON.stringify(attached);
         $('footer a').remove();
@@ -380,13 +424,13 @@ $(document).ready(function() {
     ///////////////////////////////////////////////////
     function writeMessage(msg, prp) {
 
-        if ((msg.room == sessionStorage["room"]) & (((sessionStorage["from"] == msg.to) | (msg.from == sessionStorage["from"])) | (msg.to == "Всем"))) {
+        if ((msg.room == sessionStorage['room']) & (((sessionStorage['from'] == msg.to) | (msg.from == sessionStorage['from'])) | (msg.to == 'Всем'))) {
 
-            var result = magic.msg.format(msg, sessionStorage["from"], 'ученик');
+            var result = magic.msg.format(msg, sessionStorage['from'], 'ученик');
             if (prp) {
-                $messages.prepend(result);
+                $article.prepend(result);
             } else {
-                $messages.append(result);
+                $article.append(result);
             }
         }
     }
@@ -399,7 +443,7 @@ $(document).ready(function() {
     $('textarea').autoResize({
         animate: true,
         extraSpace: 0
-    });
+    })
 
 
 
@@ -413,14 +457,14 @@ $(document).ready(function() {
         mouseleave: function() {
             $(this).children('.icon-trash-empty').hide();
         }
-    }, ".mess .attached_tree");
+    }, '.mess .attached_tree')
 
 
 
     ///////////////////////////////////////////////////
     //Удаление прикрепленного файла в окне ввода сообщ/
     ///////////////////////////////////////////////////
-    $('.mess').on('click', '.attached_tree .icon-trash-empty', function(event) {
+    $attach.on('click', '.attached_tree .icon-trash-empty', function(event) {
 
         var $msg = $(this).parent();
         attached = _.without(attached, $msg.attr('href').replace('/upload/', ''));
@@ -428,101 +472,37 @@ $(document).ready(function() {
         $msg.remove();
 
         event.preventDefault();
-    });
-
-
-
-    ///////////////////////////////////////////////////
-    ///////////////////////////////////////////////////
-    ///////////////////////////////////////////////////
-    $('article').on('click', '.msg .user', function(event) {
-
-        var $msg = $(this).parent();
-        $msg.toggleClass('selectable');
-        event.preventDefault();
-    });
+    })
 
 
 
     ///////////////////////////////////////////////////
     /////Отправка сообщения по key или click //////////
     ///////////////////////////////////////////////////
-    $("#message_text").on('keypress', function(event) {
-        if ((event.keyCode == 13) & (event.shiftKey)) {
+    $message_txt.on('keypress', function(event) {
+
+        if ((event.keyCode == 13) & (event.shiftKey)) { //Shift+Enter
             sendMsg();
             event.preventDefault();
         }
-    });
-    $("#message_btn").on('click', function(event) {
+
+    })
+
+    $('#message_btn').on('click', function(event) {
 
         sendMsg();
 
         event.preventDefault();
-    });
-
-
-    ///////////////////////////////////////////////////
-    /// Показ панели управления сообщением по hover ///
-    ///////////////////////////////////////////////////
-    $(document).on({
-        mouseenter: function() {
-            $(this).children('.icon-trash-empty').show();
-            $(this).children('.icon-save').show();
-            $(this).children('.icon-edit').show();
-        },
-        mouseleave: function() {
-            $(this).children('.icon-trash-empty').hide();
-            $(this).children('.icon-save').hide();
-            $(this).children('.icon-edit').hide();
-        }
-    }, ".msg");
-
-
+    })
 
     ///////////////////////////////////////////////////
-    /// Запуск редактирования сообщения в textarea ////
+    /// Тогглирование состояния сообщения: выделение //
     ///////////////////////////////////////////////////
-    $('article').on('click', '.msg .icon-edit', function(event) {
+    $article.on('click', '.msg', function(event) {
 
-        var $msg = $(this).parent();
-        $msg.html($msg.html().replace($msg.attr('msg'), ''));
-        if (!$msg.children().is('textarea')) {
-            $msg.append('<textarea>' + $msg.attr('msg') + '</textarea>');
-        }
+        $(this).toggleClass('msg-selectable');
 
         event.preventDefault();
-    });
-
-
-    ///////////////////////////////////////////////////
-    /// Сохранение отредактированного сообщения ///////
-    ///////////////////////////////////////////////////
-    $('article').on('click', '.msg .icon-save', function(event) {
-
-        var $msg = $(this).parent();
-        var text = $msg.children('textarea').val();
-        $msg.children('textarea').remove();
-        $msg.find('br').first().after(text);
-
-        socket.emit('editMsg', $msg.attr('id'), text);
-        $msg.attr('msg', text);
-
-        event.preventDefault();
-    });
-
-
-    ///////////////////////////////////////////////////
-    ///Сброс редактирования сообщения и убр. textarea//
-    ///////////////////////////////////////////////////
-    $('article').on('keyup', '.msg textarea', function(event) {
-
-        if (event.keyCode == 27) { //Если клавиша ESCAPE
-            var $msg = $(this).parent();
-            $msg.children('textarea').remove();
-            $msg.find('br').first().after($msg.attr('msg'));
-
-        }
-
     });
 
 
@@ -530,20 +510,26 @@ $(document).ready(function() {
     ///////////////////////////////////////////////////
     //Удаление сообщения и запрос на удаление серверу//
     ///////////////////////////////////////////////////
-    $('article').on('click', '.msg .icon-trash-empty', function(event) {
+    $main.on('click', '#rmMsgs', function(event) {
 
-        var $msg = $(this).parent();
+        magic.interface.modal('Вы действительно хотите удалить сообщение?', 'Да', 'Нет', function() {
 
-        magic.interface.modal("Вы действительно хотите удалить сообщение?", "Да", "Нет", function() {
+            $('.msg-selectable').each(function(index, val) {
+                var $msg = $(val)
+                if ($msg.attr('from') == sessionStorage['from']) {
+                    socket.emit('removeMsg', $msg.attr('id'));
+                    $msg.remove();
+                }
+            })
 
-            socket.emit('removeMsg', $msg.attr("id"))            
-            $msg.remove()
+            $('.msg-selectable').toggleClass('msg-selectable')
 
-        }, function() {}, "error");
+        }, function() {
+            $('.msg-selectable').toggleClass('msg-selectable')
+        }, 'error');
 
         event.preventDefault();
-    });
-
+    })
 
     // #   #    #     ###   #####   ###   #   #   ###           ###    ###    ###   #   #  #####  ##### 
     // #   #   # #     #      #      #    #   #  #   #         #   #  #   #  #   #  #  #   #        #   
@@ -553,77 +539,29 @@ $(document).ready(function() {
     // ## ##  #   #    #      #      #    #   #  #   #         #   #  #   #  #   #  #  #   #        #   
     // #   #  #   #   ###     #     ###   #   #   ###           ###    ###    ###   #   #  #####    #   
 
+    if (window.socket !== undefined) {
+
+        socket.on('connect', function() {}) // Не удалять. Необходимо для работы socket.io
 
 
-    socket.on('connecting', function() {});
-
-    socket.on('connect', function() {});
-
-    socket.on('failed-login', function() {
-
-        sessionStorage["loginde"] = "failed";
-
-        console.log('Верификация не пройдена, соединение не разорвано.')
-
-        $('.laypass').find('input').removeClass('redBorder')
-        $('.laypass').find('input:text').addClass("redBorder")
-
-    })
-
-    socket.on('failed-pass', function() {
-
-        sessionStorage["loginde"] = "failed";
-
-        console.log('Верификация не пройдена, соединение не разорвано.')
-
-        $('.laypass').find('input').removeClass('redBorder')
-        $('.laypass').find('input:password').addClass("redBorder")
-
-    })
-
-    socket.on('success', function() {
-
-        sessionStorage["loginde"] = "success";
-
-        $('.laypass').find('input').removeClass('redBorder')
-
-        console.log('Верификация пройдена')
-
-        init()
-    })
+        socket.on('connection', function() {}) // Не удалять. Необходимо для работы socket.io
 
 
-    socket.on('message', function(data, prepend) {
-        $('.msg').last().remove();
-        writeMessage(data, prepend);
-        $message_txt.focus();
-    })
+        socket.on('message', function(data, prepend) {
 
-    socket.on('removeMsg', function(id) {
-        $('[id="' + id + '"]').remove();
-    })
-
-
-    socket.on('add_users', function(data) {
-
-        _.each(data, function(user) {
-
-            $komu.append('<option value="' + user.from + '">' + user.title + '</option>')
-
-            if (sessionStorage["room"]=="im") {
-                $('.im').append('<a class="room" href="/{2}" to="{1}" room="{2}">{0} [{1}]</a>'.format(user.title, user.from, dia(sessionStorage["from"], user.from)));                
+            if ($('.msg').length >= 10) {
+                $('.msg').last().remove()
             }
 
-            users.push(user.from)
+            writeMessage(data, prepend);
+            $message_txt.focus();
         })
 
-        $('[room=' + sessionStorage["room"] + ']').addClass('activeRoom');
 
-        if ($('.activeRoom').attr("to") != undefined) {
-            $('#to').val($('.activeRoom').attr("to"));
-        }
-
-    })
+        socket.on('removeMsg', function(id) {
+            $('[id=' + id + ']').remove()
+        })
+    }
 
     login.session(init)
 
